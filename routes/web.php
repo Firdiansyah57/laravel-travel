@@ -12,3 +12,7 @@ Route::get('/', [HeroController::class, 'index']);
 
 
 // RUTE ADMIN
+
+Route::get('/', function () {
+    return view('/visitor/index');
+});
