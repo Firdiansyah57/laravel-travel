@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
 				<div class="col-md-7 ftco-animate">
-					<span class="subheading">Selamat Datang di..</span>
+					<span class="subheading">TripGo</span>
 					<h1 class="mb-4">Discover Your Favorite Place with Us</h1>
 					<p class="caps">Travel to the any corner of the world, without going around in circles</p>
 				</div>
@@ -54,6 +54,7 @@
 																	<option value="">Bromo</option>
 																	<option value="">Labuhan Bajo</option>
 																	<option value="">Banda Neira</option>
+                                                                    <option value="">Bukit Olon</option>
 																</select>
 															</div>
 														</div>
