@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="row no-gutters slider-text js-fullheight align-items-center" data-scrollax-parent="true">
 				<div class="col-md-7 ftco-animate">
-					<span class="subheading">Welcome to Pacific</span>
+					<span class="subheading">Selamat Datang di..</span>
 					<h1 class="mb-4">Discover Your Favorite Place with Us</h1>
 					<p class="caps">Travel to the any corner of the world, without going around in circles</p>
 				</div>
@@ -46,7 +46,7 @@
 												</div> --}}
                                                 <div class="col-md d-flex">
 													<div class="form-group p-4">
-														<label for="#">Destination</label>
+														<label for="#">Destinasi</label>
 														<div class="form-field">
 															<div class="select-wrap">
 																<div class="icon"><span class="fa fa-chevron-down"></span></div>
