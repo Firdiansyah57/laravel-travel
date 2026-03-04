@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
         TentangKami3Seeder::class,
         GallerySeeder::class,
         DaftarTripSeeder::class,
+        HeroSeeder::class,
     ]);
     }
 }

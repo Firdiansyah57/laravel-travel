@@ -1,7 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\visitor\HeroController;
 
-Route::get('/', function () {
-    return view('/visitor/index');
-});
+// RUTE VISITOR
+Route::get('/', [HeroController::class, 'index']);
+
+
+
+
+
+
+// RUTE ADMIN
