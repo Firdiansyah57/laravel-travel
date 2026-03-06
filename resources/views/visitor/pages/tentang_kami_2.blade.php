@@ -3,9 +3,15 @@
     <div class="container">
         <div class="row d-flex">
 
+<<<<<<< HEAD
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+=======
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+>>>>>>> 5a342c8 (first commit)
                         <div class="services services-1 color-1 d-block img" style="background-image: url(visitor/images/services-1.jpg);">
                             <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-paragliding"></span></div>
                             <div class="media-body">
@@ -15,6 +21,7 @@
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+                    <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
                         <div class="services services-1 color-2 d-block img" style="background-image: url(visitor/images/services-2.jpg);">
                             <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-route"></span></div>
                             <div class="media-body">
@@ -23,7 +30,11 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+=======
+                    <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+>>>>>>> 5a342c8 (first commit)
                         <div class="services services-1 color-3 d-block img" style="background-image: url(visitor/images/services-3.jpg);">
                             <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-tour-guide"></span></div>
                             <div class="media-body">
@@ -32,7 +43,11 @@
                             </div>
                         </div>
                     </div>
+<<<<<<< HEAD
                     <div class="col-md-6 col-lg-3 d-flex align-self-stretch ftco-animate">
+=======
+                    <div class="col-md-12 col-lg-6 d-flex align-self-stretch ftco-animate">
+>>>>>>> 5a342c8 (first commit)
                         <div class="services services-1 color-4 d-block img" style="background-image: url(visitor/images/services-4.jpg);">
                             <div class="icon d-flex align-items-center justify-content-center"><span class="flaticon-map"></span></div>
                             <div class="media-body">
@@ -46,3 +61,4 @@
         </div>
     </div>
 </section>
+
