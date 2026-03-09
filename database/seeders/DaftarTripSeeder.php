@@ -85,6 +85,7 @@ class DaftarTripSeeder extends Seeder
             [
                 'tanggal' => '2026-04-30',
                 'image' => 'rinjani.webp',
+                'image' => 'rinjani.webp',
                 'title' => 'Mount Rinjani Trekking 3D2N',
                 'price' => 3000000,
                 'quota' => 6,
