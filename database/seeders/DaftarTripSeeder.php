@@ -12,7 +12,7 @@ class DaftarTripSeeder extends Seeder
         DB::table('daftar_trip')->insert([
             [
                 'tanggal' => '2026-04-10',
-                'image' => 'bromo-sunrise.jpg',
+                'image' => 'bromo.webp',
                 'title' => 'Bromo Sunrise Sharing Trip',
                 'price' => 350000,
                 'quota' => 12,
@@ -21,7 +21,7 @@ class DaftarTripSeeder extends Seeder
             ],
             [
                 'tanggal' => '2026-04-12',
-                'image' => 'raja-ampat.jpg',
+                'image' => 'Rajaampat.webp',
                 'title' => 'Raja Ampat Island Hopping',
                 'price' => 3500000,
                 'quota' => 8,
@@ -30,7 +30,7 @@ class DaftarTripSeeder extends Seeder
             ],
             [
                 'tanggal' => '2026-04-15',
-                'image' => 'labuan-bajo.jpg',
+                'image' => 'komodo.webp',
                 'title' => 'Labuan Bajo & Komodo Island',
                 'price' => 2750000,
                 'quota' => 10,
@@ -39,7 +39,7 @@ class DaftarTripSeeder extends Seeder
             ],
             [
                 'tanggal' => '2026-04-18',
-                'image' => 'bali-uluwatu.jpg',
+                'image' => 'bali.webp',
                 'title' => 'Bali Uluwatu Sunset Tour',
                 'price' => 650000,
                 'quota' => 15,
@@ -48,7 +48,7 @@ class DaftarTripSeeder extends Seeder
             ],
             [
                 'tanggal' => '2026-04-20',
-                'image' => 'tumpak-sewu.jpg',
+                'image' => 'tumpaksewu.webp',
                 'title' => 'Tumpak Sewu Waterfall Adventure',
                 'price' => 550000,
                 'quota' => 12,
@@ -57,7 +57,7 @@ class DaftarTripSeeder extends Seeder
             ],
             [
                 'tanggal' => '2026-04-22',
-                'image' => 'dieng-plateau.jpg',
+                'image' => 'dieng.webp',
                 'title' => 'Dieng Plateau Golden Sunrise',
                 'price' => 450000,
                 'quota' => 14,
@@ -66,7 +66,7 @@ class DaftarTripSeeder extends Seeder
             ],
             [
                 'tanggal' => '2026-04-25',
-                'image' => 'kawah-ijen.jpg',
+                'image' => 'ijen.webp',
                 'title' => 'Kawah Ijen Blue Fire Tour',
                 'price' => 500000,
                 'quota' => 10,
@@ -75,7 +75,7 @@ class DaftarTripSeeder extends Seeder
             ],
             [
                 'tanggal' => '2026-04-27',
-                'image' => 'belitung-island.jpg',
+                'image' => 'belitung.jpg',
                 'title' => 'Belitung Island Hopping',
                 'price' => 1200000,
                 'quota' => 12,
@@ -84,7 +84,7 @@ class DaftarTripSeeder extends Seeder
             ],
             [
                 'tanggal' => '2026-04-30',
-                'image' => 'lombok-rinjani.jpg',
+                'image' => 'rinjani.webp',
                 'title' => 'Mount Rinjani Trekking 3D2N',
                 'price' => 2800000,
                 'quota' => 8,

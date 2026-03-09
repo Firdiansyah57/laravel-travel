@@ -17,35 +17,40 @@
                     <div class="project-wrap">
 
                         <a href="#" class="img"
-                            style="background-image: url('{{ asset('images/daftar_trip/' . $item->image) }}');">
+                            style="background-image:url('{{ asset('images/daftar_trip/' . $item['image']) }}')">
 
-                            <span class="price">
-                                Rp {{ number_format($item->price, 0, ',', '.') }}
-                            </span>
+                            @if ($item['price'])
+                                <span class="price">
+                                    Rp {{ number_format($item['price'], 0, ',', '.') }}
+                                </span>
+                            @endif
 
                         </a>
 
                         <div class="text p-4">
 
-                            <span class="days">
-                                {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
-                            </span>
+                            @if ($item['tanggal'])
+                                <span class="days">
+                                    {{ \Carbon\Carbon::parse($item['tanggal'])->format('d M Y') }}
+                                </span>
+                            @endif
 
-                            <h3>
-                                <a href="#">{{ $item->title }}</a>
-                            </h3>
+                            <h3>{{ $item['title'] }}</h3>
 
-                            <p class="location">
-                                Quota : {{ $item->quota }} orang
-                            </p>
+                            @if ($item['quota'])
+                                <p>Quota : {{ $item['quota'] }} orang</p>
+                            @else
+                                <p class="text-danger">Tidak tersedia pada tanggal ini</p>
+                            @endif
 
-                            <a href="#" class="btn btn-primary">
+                            <a href="#" class="btn btn-primary btn-sm">
                                 Book Now
                             </a>
 
                         </div>
 
                     </div>
+
                 </div>
             @endforeach
 
@@ -55,9 +60,7 @@
             <div class="col-md-12 text-center ftco-animate">
 
                 <a href="{{ route('daftar_trip.index') }}" class="btn btn-primary py-3 px-4">
-
                     Search Destination
-
                 </a>
 
             </div>

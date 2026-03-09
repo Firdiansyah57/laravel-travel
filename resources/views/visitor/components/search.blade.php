@@ -4,9 +4,7 @@
             <div class="col-md-12">
 
                 <div class="ftco-search">
-
                     <div class="tab-wrap">
-
                         <div class="tab-content">
 
                             <div class="tab-pane fade show active">
@@ -18,29 +16,24 @@
 
                                         {{-- INPUT TANGGAL --}}
                                         <div class="col-md-10 d-flex">
-
                                             <div class="form-group p-4 border-0 w-100">
 
                                                 <label>Pilih Tanggal Trip</label>
 
                                                 <div class="form-field">
-
                                                     <div class="icon">
                                                         <span class="fa fa-calendar"></span>
                                                     </div>
 
                                                     <input type="date" name="tanggal"
                                                         value="{{ request('tanggal') }}" class="form-control">
-
                                                 </div>
 
                                             </div>
-
                                         </div>
 
                                         {{-- BUTTON SEARCH --}}
                                         <div class="col-md-2 d-flex">
-
                                             <div class="form-group p-4 border-0 w-100">
 
                                                 <label style="opacity:0;">Search</label>
@@ -49,7 +42,6 @@
                                                     class="form-control btn btn-primary">
 
                                             </div>
-
                                         </div>
 
                                     </div>
@@ -59,13 +51,10 @@
                             </div>
 
                         </div>
-
                     </div>
-
                 </div>
 
             </div>
         </div>
-    </div>
     </div>
 </section>
