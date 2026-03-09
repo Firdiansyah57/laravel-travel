@@ -10,8 +10,8 @@
             <ul class="navbar-nav ml-auto">
                 {{-- <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li> --}}
                 <li class="nav-item active"><a href="{{ route('daftar_trip.index') }}" class="nav-link">Daftar Trip</a></li>
-                <li class="nav-item active"><a href="destination.html" class="nav-link">Gallery</a></li>
-                <li class="nav-item active"><a href="hotel.html" class="nav-link">Tentang Kami</a></li>
+                <li class="nav-item active"><a href="" class="nav-link">Gallery</a></li>
+                <li class="nav-item active"><a href="{{ route('tentang_kami.index') }}" class="nav-link">Tentang Kami</a></li>
                 {{-- <li class="nav-item active"><a href="blog.html" class="nav-link">Blog</a></li>
                 <li class="nav-item active"><a href="contact.html" class="nav-link">Tentang Kami</a></li> --}}
             </ul>
