@@ -1,126 +1,69 @@
-{{-- CARD DAFTAR TRIP --}}
 @extends('visitor.layout.app')
+
 @section('content')
-<div class="container">
-    <div class="col-md-7 ftco-animate " style="margin-top:100px;">
-        <h1>Ayo Mulai Explore!</h1>
-    </div>
-</div>
-<section class="ftco-section">
+    @include('visitor.components.search')
 
- @include('visitor.components.search')
-    <div class="container mt-5">
-        <div class="row justify-content-center pb-4">
-            <div class="col-md-12 heading-section text-center ftco-animate">
-                <span class="subheading">Destination</span>
-                <h2 class="mb-4">Tour Destination</h2>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url('{{ asset('visitor/images/destination-1.jpg') }}');">
-                        <span class="price">$550/person</span>
-                    </a>
-                    <div class="text p-4">
-                        <span class="days">8 Days Tour</span>
-                        <h3><a href="#">Banaue Rice Terraces</a></h3>
-                        <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                        <ul>
-                            <li><span class="flaticon-shower"></span>2</li>
-                            <li><span class="flaticon-king-size"></span>3</li>
-                            <li><span class="flaticon-mountains"></span>Near Mountain</li>
-                        </ul>
-                    </div>
+    <section class="ftco-section pt-5">
+
+        <div class="container">
+
+            <div class="row justify-content-center pb-4">
+
+                <div class="col-md-12 heading-section text-center">
+                    <span class="subheading">Destination</span>
+                    <h2 class="mb-4">Tour Destination</h2>
                 </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url('{{ asset('visitor/images/destination-2.jpg') }}');">
-                        <span class="price">$550/person</span>
-                    </a>
-                    <div class="text p-4">
-                        <span class="days">10 Days Tour</span>
-                        <h3><a href="#">Banaue Rice Terraces</a></h3>
-                        <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                        <ul>
-                            <li><span class="flaticon-shower"></span>2</li>
-                            <li><span class="flaticon-king-size"></span>3</li>
-                            <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url('{{ asset('visitor/images/destination-3.jpg') }}');">
-                        <span class="price">$550/person</span>
-                    </a>
-                    <div class="text p-4">
-                        <span class="days">7 Days Tour</span>
-                        <h3><a href="#">Banaue Rice Terraces</a></h3>
-                        <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                        <ul>
-                            <li><span class="flaticon-shower"></span>2</li>
-                            <li><span class="flaticon-king-size"></span>3</li>
-                            <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                        </ul>
-                    </div>
-                </div>
+
             </div>
 
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url('{{ asset('visitor/images/destination-4.jpg') }}');">
-                        <span class="price">$550/person</span>
-                    </a>
-                    <div class="text p-4">
-                        <span class="days">8 Days Tour</span>
-                        <h3><a href="#">Banaue Rice Terraces</a></h3>
-                        <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                        <ul>
-                            <li><span class="flaticon-shower"></span>2</li>
-                            <li><span class="flaticon-king-size"></span>3</li>
-                            <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                        </ul>
+            <div class="row">
+
+                @forelse ($data as $item)
+                    <div class="col-md-4 ftco-animate">
+
+                        <div class="project-wrap">
+
+                            <a href="#" class="img"
+                                style="background-image:url('{{ asset('images/daftar_trip/' . $item->image) }}')">
+
+                                <span class="price">
+                                    Rp {{ number_format($item->price, 0, ',', '.') }}
+                                </span>
+
+                            </a>
+
+                            <div class="text p-4">
+
+                                <span class="days">
+                                    {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
+                                </span>
+
+                                <h3>{{ $item->title }}</h3>
+
+                                <p>Quota : {{ $item->quota }} orang</p>
+
+                                <a href="#" class="btn btn-primary btn-sm">
+                                    Book Now
+                                </a>
+
+                            </div>
+
+                        </div>
+
                     </div>
-                </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url('{{ asset('visitor/images/destination-5.jpg') }}');">
-                        <span class="price">$550/person</span>
-                    </a>
-                    <div class="text p-4">
-                        <span class="days">10 Days Tour</span>
-                        <h3><a href="#">Banaue Rice Terraces</a></h3>
-                        <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                        <ul>
-                            <li><span class="flaticon-shower"></span>2</li>
-                            <li><span class="flaticon-king-size"></span>3</li>
-                            <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                        </ul>
+
+                @empty
+
+                    <div class="col-md-12 text-center">
+
+                        <h4>Tidak ada trip pada tanggal tersebut</h4>
+
                     </div>
-                </div>
+                @endforelse
+
             </div>
-            <div class="col-md-4 ftco-animate">
-                <div class="project-wrap">
-                    <a href="#" class="img" style="background-image: url('{{ asset('visitor/images/destination-6.jpg') }}');">
-                        <span class="price">$550/person</span>
-                    </a>
-                    <div class="text p-4">
-                        <span class="days">7 Days Tour</span>
-                        <h3><a href="#">Banaue Rice Terraces</a></h3>
-                        <p class="location"><span class="fa fa-map-marker"></span> Banaue, Ifugao, Philippines</p>
-                        <ul>
-                            <li><span class="flaticon-shower"></span>2</li>
-                            <li><span class="flaticon-king-size"></span>3</li>
-                            <li><span class="flaticon-sun-umbrella"></span>Near Beach</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
+
         </div>
-    </div>
-</section>
+
+    </section>
 @endsection
