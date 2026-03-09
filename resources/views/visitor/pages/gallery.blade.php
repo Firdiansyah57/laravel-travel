@@ -3,7 +3,7 @@
         <div class="row justify-content-center pb-4">
             <div class="col-md-12 heading-section text-center ftco-animate">
                 <span class="subheading">Gambar</span>
-                <span class="subheading">Our Blog</span>
+                {{-- <span class="subheading">Our Blog</span> --}}
                 <h2 class="mb-4">Recent Post</h2>
             </div>
         </div>

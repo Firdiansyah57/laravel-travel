@@ -1,15 +1,6 @@
 {{-- CARD DAFTAR TRIP --}}
-@extends('visitor.layout.app')
-@section('content')
-<div class="container">
-    <div class="col-md-7 ftco-animate " style="margin-top:100px;">
-        <h1>Ayo Mulai Explore!</h1>
-    </div>
-</div>
 <section class="ftco-section">
-
- @include('visitor.components.search')
-    <div class="container mt-5">
+    <div class="container">
         <div class="row justify-content-center pb-4">
             <div class="col-md-12 heading-section text-center ftco-animate">
                 <span class="subheading">Destination</span>
@@ -69,7 +60,8 @@
                 </div>
             </div>
 
-            <div class="col-md-4 ftco-animate">
+
+            {{-- <div class="col-md-4 ftco-animate">
                 <div class="project-wrap">
                     <a href="#" class="img" style="background-image: url('{{ asset('visitor/images/destination-4.jpg') }}');">
                         <span class="price">$550/person</span>
@@ -85,8 +77,8 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
+            </div> --}}
+            {{-- <div class="col-md-4 ftco-animate">
                 <div class="project-wrap">
                     <a href="#" class="img" style="background-image: url('{{ asset('visitor/images/destination-5.jpg') }}');">
                         <span class="price">$550/person</span>
@@ -102,8 +94,8 @@
                         </ul>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4 ftco-animate">
+            </div> --}}
+            {{-- <div class="col-md-4 ftco-animate">
                 <div class="project-wrap">
                     <a href="#" class="img" style="background-image: url('{{ asset('visitor/images/destination-6.jpg') }}');">
                         <span class="price">$550/person</span>
@@ -119,8 +111,12 @@
                         </ul>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
+           <div class="row mt-4">
+    <div class="col-md-12 text-center ftco-animate">
+        <a href="{{ route('daftar_trip.index') }}" class="btn btn-primary py-3 px-4">Search Destination</a>
+    </div>
+</div>
     </div>
 </section>
-@endsection

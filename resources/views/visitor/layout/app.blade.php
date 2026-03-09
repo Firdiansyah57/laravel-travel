@@ -10,6 +10,7 @@
     <!-- NAVBAR -->
     @include('visitor.components.navbar')
 
+    {{-- @yield('content') --}}
     @yield('content')
 
     {{-- FOOTER --}}
