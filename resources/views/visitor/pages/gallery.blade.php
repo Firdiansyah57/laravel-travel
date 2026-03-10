@@ -1,3 +1,6 @@
+@extends('visitor.layout.app')
+
+@section('content')
 <section class="ftco-section">
     <div class="container">
         <div class="row justify-content-center pb-4">
@@ -8,12 +11,13 @@
             </div>
         </div>
         <div class="row d-flex">
+            @foreach ($gallery as $item)
             <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
-                    <a href="blog-single.html" class="block-20" style="background-image: url('visitor/images/image_1.jpg');">
+                    <a href="blog-single.html" class="block-20" style="background-image: url({{ asset('images/gallery/' . $item->image) }});">
                     </a>
                     <div class="text">
-                        <div class="d-flex align-items-center mb-4 topp">
+                         <div class="d-flex align-items-center mb-4 topp">
                             <div class="one">
                                 <span class="day">11</span>
                             </div>
@@ -23,12 +27,13 @@
                             </div>
                         </div>
                         <h3 class="heading"><a href="#">Most Popular Place In This World</a></h3>
-                        <!-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> -->
+                        {{-- <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p> --}}
                         <p><a href="#" class="btn btn-primary">Read more</a></p>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4 d-flex ftco-animate">
+            @endforeach
+            {{-- <div class="col-md-4 d-flex ftco-animate">
                 <div class="blog-entry justify-content-end">
                     <a href="blog-single.html" class="block-20" style="background-image: url('visitor/images/image_2.jpg');">
                     </a>
@@ -67,7 +72,8 @@
                         <p><a href="#" class="btn btn-primary">Read more</a></p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 </section>
+@endsection

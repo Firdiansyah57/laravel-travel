@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
     <div class="container">
-        <a class="navbar-brand" href="/">TripGo<span>Travel Agency</span></a>
+        <a class="navbar-brand" href="{{ route('home') }}">TripGo<span>Travel Agency</span></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav" aria-controls="ftco-nav"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="oi oi-menu"></span> Menu
@@ -10,7 +10,7 @@
             <ul class="navbar-nav ml-auto">
                 {{-- <li class="nav-item active"><a href="index.html" class="nav-link">Home</a></li> --}}
                 <li class="nav-item active"><a href="{{ route('daftar_trip.index') }}" class="nav-link">Daftar Trip</a></li>
-                <li class="nav-item active"><a href="" class="nav-link">Gallery</a></li>
+                <li class="nav-item active"><a href="{{ route('gallery.index') }}" class="nav-link">Gallery</a></li>
                 <li class="nav-item active"><a href="{{ route('tentang_kami.index') }}" class="nav-link">Tentang Kami</a></li>
                 {{-- <li class="nav-item active"><a href="blog.html" class="nav-link">Blog</a></li>
                 <li class="nav-item active"><a href="contact.html" class="nav-link">Tentang Kami</a></li> --}}
