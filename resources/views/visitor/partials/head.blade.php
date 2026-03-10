@@ -20,4 +20,5 @@
 
 	<link rel="stylesheet" href="{{asset('visitor/css/flaticon.css')}}">
 	<link rel="stylesheet" href="{{asset('visitor/css/style.css')}}">
+	<link rel="stylesheet" href="{{asset('visitor/css/gallery_custom.css')}}">
 </head>

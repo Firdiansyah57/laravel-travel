@@ -19,7 +19,7 @@ class HeroController extends Controller
         $data = DaftarTrip::orderBy('tanggal', 'asc')->take(3)->get();
         $tentang_kami_2 = TentangKami2::all();
         $tentang_kami_3 = TentangKami3::all();
-        $gallery = Gallery::orderBy('image')->take(3)->get();
+        $gallery = Gallery::orderBy('image')->take(5)->get();
 
         return view('visitor.index', compact('hero', 'data','tentang_kami_2', 'tentang_kami_3', 'gallery'));
     }

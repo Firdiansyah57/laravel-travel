@@ -14,5 +14,5 @@
     @include('visitor.components.tentang_kami_3')
 
     {{-- GALLERY --}}
-    @include('visitor.pages.gallery')
+    @include('visitor.components.gallery_card')
 @endsection

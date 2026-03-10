@@ -16,6 +16,9 @@ class GallerySeeder extends Seeder
             ['image' => 'Ijen.webp', 'created_at' => now(), 'updated_at' => now()],
             ['image' => 'bali.webp', 'created_at' => now(), 'updated_at' => now()],
             ['image' => 'dieng.webp', 'created_at' => now(), 'updated_at' => now()],
+            ['image' => 'belitung.webp', 'created_at' => now(), 'updated_at' => now()],
+            ['image' => 'rinjani.webp', 'created_at' => now(), 'updated_at' => now()],
+            ['image' => 'tumpaksewu.webp', 'created_at' => now(), 'updated_at' => now()],
         ]);
     }
 }

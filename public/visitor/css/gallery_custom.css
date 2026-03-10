@@ -1,0 +1,60 @@
+/* GRID GALLERY */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* Desktop */
+    gap: 15px;
+}
+
+/* ITEM GAMBAR */
+.gallery-img {
+    width: 100%;
+    height: 200px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Hover effect */
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+/* ===== RESPONSIVE ===== */
+
+/* Laptop kecil / tablet landscape */
+@media (max-width: 1200px) {
+    .gallery-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* Tablet */
+@media (max-width: 992px) {
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* HP besar */
+@media (max-width: 768px) {
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .gallery-img {
+        height: 160px;
+    }
+}
+
+/* HP kecil */
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .gallery-img {
+        height: 180px;
+    }
+}
