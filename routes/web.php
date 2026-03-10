@@ -17,6 +17,7 @@ Route::get('/tentang-kami', [TentangKamiController::class, 'index'])->name('tent
 
 
 
+
 // RUTE ADMIN
 
 // Route::get('/', function () {

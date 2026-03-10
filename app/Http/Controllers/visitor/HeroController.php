@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Hero;
 use App\Models\DaftarTrip;
+use App\Models\TentangKami2;
+use App\Models\TentangKami3;
 
 class HeroController extends Controller
 {
@@ -14,7 +16,9 @@ class HeroController extends Controller
         $hero = Hero::first(); // ambil 1 data saja (hero utama)
 
         $data = DaftarTrip::orderBy('tanggal', 'asc')->take(3)->get();
+        $tentang_kami_2 = TentangKami2::all();
+        $tentang_kami_3 = TentangKami3::all();
 
-        return view('visitor.index', compact('hero', 'data'));
+        return view('visitor.index', compact('hero', 'data','tentang_kami_2', 'tentang_kami_3'));
     }
 }

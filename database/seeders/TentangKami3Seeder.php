@@ -12,7 +12,7 @@ class TentangKami3Seeder extends Seeder
         DB::table('tentang_kami_3')->insert([
             [
                 'image' => 'client1.jpg',
-                'name' => 'Andi Pratama',
+                'name' => 'Rizal',
                 'rating' => 5,
                 'description' => 'Perjalanan yang luar biasa! Sunrise Bromo sangat indah dan pelayanan tim sangat profesional.',
                 'created_at' => now(),
@@ -20,7 +20,7 @@ class TentangKami3Seeder extends Seeder
             ],
             [
                 'image' => 'client2.jpg',
-                'name' => 'Siti Rahma',
+                'name' => 'Rahmat',
                 'rating' => 5,
                 'description' => 'Tour sangat terorganisir dengan baik. Jeep bersih dan guide sangat ramah.',
                 'created_at' => now(),
@@ -28,8 +28,8 @@ class TentangKami3Seeder extends Seeder
             ],
             [
                 'image' => 'client3.jpg',
-                'name' => 'Michael Tan',
-                'rating' => 4,
+                'name' => 'Rizky',
+                'rating' => 5,
                 'description' => 'Pengalaman yang menyenangkan dan pemandangan yang luar biasa. Highly recommended!',
                 'created_at' => now(),
                 'updated_at' => now(),

@@ -11,8 +11,20 @@ class TentangKamiSeeder extends Seeder
     {
         DB::table('tentang_kami')->insert([
             [
-                'title' => 'Explore The Beauty of Mount Bromo With Us',
-                'description' => 'Exotic Bromo adalah tour operator profesional yang berfokus pada perjalanan wisata Gunung Bromo, Tumpak Sewu, dan destinasi terbaik di Jawa Timur. Kami menghadirkan pengalaman perjalanan yang aman, nyaman, dan berkesan dengan pelayanan terbaik serta tim berpengalaman.',
+                'icon' => 'fa fa-whatsapp',
+                'link' => '#',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'icon' => 'fa fa-twitter',
+                'link' => '#',
+                'created_at' => now(),
+                'updated_at' => now(),
+            ],
+            [
+                'icon' => 'fa fa-instagram',
+                'link' => '#',
                 'created_at' => now(),
                 'updated_at' => now(),
             ]
