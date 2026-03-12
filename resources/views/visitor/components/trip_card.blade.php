@@ -17,31 +17,23 @@
                     <div class="project-wrap">
 
                         <a href="#" class="img"
-                            style="background-image:url('{{ asset('images/daftar_trip/' . $item['image']) }}')">
+                            style="background-image:url('{{ asset('images/destinations/' . $item->destination->image) }}')">
 
-                            @if ($item['price'])
-                                <span class="price">
-                                    Rp {{ number_format($item['price'], 0, ',', '.') }}
-                                </span>
-                            @endif
+                            <span class="price">
+                                Rp {{ number_format($item->destination->price, 0, ',', '.') }}
+                            </span>
 
                         </a>
 
                         <div class="text p-4">
 
-                            @if ($item['tanggal'])
-                                <span class="days">
-                                    {{ \Carbon\Carbon::parse($item['tanggal'])->format('d M Y') }}
-                                </span>
-                            @endif
+                            <span class="days">
+                                {{ \Carbon\Carbon::parse($item->trip_date)->format('d M Y') }}
+                            </span>
 
-                            <h3>{{ $item['title'] }}</h3>
+                            <h3>{{ $item->destination->title }}</h3>
 
-                            @if ($item['quota'])
-                                <p>Quota : {{ $item['quota'] }} orang</p>
-                            @else
-                                <p class="text-danger">Tidak tersedia pada tanggal ini</p>
-                            @endif
+                            <p>Quota : {{ $item->quota }} orang</p>
 
                             <a href="#" class="btn btn-primary btn-sm">
                                 Book Now
@@ -59,7 +51,7 @@
         <div class="row mt-4">
             <div class="col-md-12 text-center ftco-animate">
 
-                <a href="{{ route('daftar_trip.index') }}" class="btn btn-primary py-3 px-4">
+                <a href="{{ route('destinations.index') }}" class="btn btn-primary py-3 px-4">
                     Search Destination
                 </a>
 

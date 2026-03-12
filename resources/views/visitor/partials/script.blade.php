@@ -13,3 +13,10 @@
 <script src="https://maps.googleapis.com/maps/api/visitor/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
 <script src="{{asset('visitor/js/google-map.js')}}"></script>
 <script src="{{asset('visitor/js/main.js')}}"></script>
+<script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+
+<script>
+const lightbox = GLightbox({
+    selector: '.glightbox'
+});
+</script>

@@ -26,8 +26,10 @@ class DatabaseSeeder extends Seeder
         TentangKami2Seeder::class,
         TentangKami3Seeder::class,
         GallerySeeder::class,
-        DaftarTripSeeder::class,
+        // DaftarTripSeeder::class,
         HeroSeeder::class,
+        DestinationSeeder::class,
+        TripScheduleSeeder::class,
     ]);
     }
 }

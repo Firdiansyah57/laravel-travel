@@ -1,6 +1,7 @@
 @extends('visitor.layout.app')
 
 @section('content')
+    @include('visitor.components.navbar_custom')
     <section class="ftco-section pt-5">
 
         <div class="container">
@@ -44,7 +45,7 @@
 
                     </p>
 
-                    <a href="{{ route('daftar_trip.index') }}" class="btn btn-sm btn-secondary">
+                    <a href="{{ route('destinations.index') }}" class="btn btn-sm btn-secondary">
 
                         Reset Filter
 
@@ -66,15 +67,20 @@
             <div class="row">
 
                 @forelse ($data as $item)
+                    @php
+                        $booked = $item->bookings->sum('qty');
+                        $sisaQuota = $item->quota - $booked;
+                    @endphp
+
                     <div class="col-md-4 ftco-animate">
 
                         <div class="project-wrap">
 
                             <a href="#" class="img"
-                                style="background-image:url('{{ asset('images/daftar_trip/' . $item->image) }}')">
+                                style="background-image:url('{{ asset('images/destinations/' . $item->destination->image) }}')">
 
                                 <span class="price">
-                                    Rp {{ number_format($item->price, 0, ',', '.') }}
+                                    Rp {{ number_format($item->destination->price, 0, ',', '.') }}
                                 </span>
 
                             </a>
@@ -82,16 +88,22 @@
                             <div class="text p-4">
 
                                 <span class="days">
-                                    {{ \Carbon\Carbon::parse($item->tanggal)->format('d M Y') }}
+                                    {{ \Carbon\Carbon::parse($item->trip_date)->format('d M Y') }}
                                 </span>
 
-                                <h3>{{ $item->title }}</h3>
+                                <h3>{{ $item->destination->title }}</h3>
 
-                                <p>Quota : {{ $item->quota }} orang</p>
+                                <p>Quota : {{ $sisaQuota }} orang</p>
 
-                                <a href="#" class="btn btn-primary btn-sm">
-                                    Book Now
-                                </a>
+                                @if ($sisaQuota > 0)
+                                    <a href="#" class="btn btn-primary btn-sm">
+                                        Book Now
+                                    </a>
+                                @else
+                                    <span class="badge badge-danger">
+                                        FULL BOOKED
+                                    </span>
+                                @endif
 
                             </div>
 

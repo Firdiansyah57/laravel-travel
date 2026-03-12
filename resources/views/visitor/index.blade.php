@@ -1,6 +1,8 @@
 @extends('visitor.layout.app')
 
 @section('content')
+    {{-- NAVBAR --}}
+    @include('visitor.components.navbar')
     {{-- HERO --}}
     @include('visitor.pages.hero')
 

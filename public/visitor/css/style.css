@@ -10085,3 +10085,53 @@ textarea.form-control {
   100% {
     stroke-dasharray: 89, 200;
     stroke-dashoffset: -136px; } }
+
+
+
+    /* test test */
+    /* SEARCH BOX STYLE */
+
+.search-property-1{
+    background:white;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.1);
+}
+
+/* icon */
+.search-icon{
+    position:absolute;
+    left:15px;
+    top:50%;
+    transform:translateY(-50%);
+    color:#999;
+}
+
+/* input padding */
+.search-property-1 input{
+    padding-left:40px;
+    height:50px;
+}
+
+/* button */
+.search-btn{
+    height:50px;
+    font-weight:600;
+}
+
+/* mobile */
+@media (max-width:768px){
+
+.search-property-1{
+    padding:20px;
+}
+
+.search-btn{
+    margin-top:10px;
+}
+
+}
+
+.search-property-1 .form-field .icon {
+    border-right: none !important;
+}
