@@ -16,7 +16,7 @@
 
                     <div class="project-wrap">
 
-                        <a href="#" class="img"
+                        <a href="{{ route('trip.detail', $item->id) }}" class="img"
                             style="background-image:url('{{ asset('images/destinations/' . $item->destination->image) }}')">
 
                             <span class="price">
@@ -35,7 +35,7 @@
 
                             <p>Quota : {{ $item->quota }} orang</p>
 
-                            <a href="#" class="btn btn-primary btn-sm">
+                            <a href="{{ route('trip.detail', $item->id) }}" class="btn btn-primary btn-sm">
                                 Book Now
                             </a>
 

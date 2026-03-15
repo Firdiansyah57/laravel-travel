@@ -1,0 +1,18 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class DestinationFacility extends Model
+{
+    protected $fillable = [
+        'destination_id',
+        'facility'
+    ];
+
+    public function destination()
+    {
+        return $this->belongsTo(Destination::class);
+    }
+}

@@ -38,11 +38,19 @@ Route::get('/gallery', [GalleryController::class, 'index'])
 // Route::get('/search-trip', [TripController::class,'search'])
 //     ->name('trip.search');
 
-// Route::get('/trip/{id}', [TripController::class,'detail'])
-//     ->name('trip.detail');
+Route::get('/trip/{id}', [TripController::class,'detail'])
+    ->name('trip.detail');
 
 // Route::post('/booking', [BookingController::class,'store'])
 //     ->name('booking.store');
 
 Route::get('/destinations',[TripController::class,'destinations'])
 ->name('trip.destinations');
+
+
+//rute untuk halaman reservasi
+Route::get('/reservasi/{id}', [BookingController::class,'create'])
+->name('reservasi.create');
+
+Route::post('/reservasi/store', [BookingController::class,'store'])
+->name('reservasi.store');

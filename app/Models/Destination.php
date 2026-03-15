@@ -19,4 +19,24 @@ class Destination extends Model
     {
         return $this->hasMany(TripSchedule::class);
     }
+
+    public function galleries()
+    {
+        return $this->hasMany(DestinationGallery::class);
+    }
+
+    public function facilities()
+    {
+        return $this->hasMany(DestinationFacility::class);
+    }
+
+    public function spots()
+    {
+        return $this->hasMany(DestinationSpot::class);
+    }
+
+    public function itineraries()
+    {
+        return $this->hasMany(DestinationItinerary::class);
+    }
 }
