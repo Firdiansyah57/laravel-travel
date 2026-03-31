@@ -184,7 +184,8 @@
                                     Pesan Paket Ini
                                 </a>
                             @else
-                                <a href="{{ route('google.login') }}" class="btn btn-success btn-block">
+                                <a href="{{ route('google.login', ['redirect' => route('reservasi.create', $trip->id)]) }}"
+                                    class="btn btn-success btn-block">
                                     Login untuk Booking
                                 </a>
                             @endauth
