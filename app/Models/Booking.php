@@ -18,6 +18,11 @@ class Booking extends Model
 
     public function schedule()
     {
-        return $this->belongsTo(TripSchedule::class,'trip_schedule_id');
+        return $this->belongsTo(TripSchedule::class, 'trip_schedule_id');
+    }
+
+    public function tripSchedule()
+    {
+        return $this->belongsTo(TripSchedule::class);
     }
 }

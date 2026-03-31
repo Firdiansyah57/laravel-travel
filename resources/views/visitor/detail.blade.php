@@ -179,11 +179,15 @@
 
                             </table>
 
-                            <a href="{{ route('reservasi.create',$trip->id) }}" class="btn btn-success btn-block">
-
-                                Pesan Paket Ini
-
-                            </a>
+                            @auth
+                                <a href="{{ route('reservasi.create', $trip->id) }}" class="btn btn-success btn-block">
+                                    Pesan Paket Ini
+                                </a>
+                            @else
+                                <a href="{{ route('google.login') }}" class="btn btn-success btn-block">
+                                    Login untuk Booking
+                                </a>
+                            @endauth
 
                         </div>
 

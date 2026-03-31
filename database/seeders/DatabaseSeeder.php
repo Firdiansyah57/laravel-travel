@@ -30,6 +30,7 @@ class DatabaseSeeder extends Seeder
         HeroSeeder::class,
         DestinationSeeder::class,
         TripScheduleSeeder::class,
+        DestinationDetailSeeder::class
     ]);
     }
 }
