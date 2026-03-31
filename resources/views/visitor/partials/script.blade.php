@@ -15,6 +15,11 @@
 <script src="{{ asset('visitor/js/main.js') }}"></script>
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
+{{-- dropdown --}}
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+
+
 <script>
     const lightbox = GLightbox({
         selector: '.glightbox'
@@ -22,67 +27,67 @@
 </script>
 
 @isset($trip)
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
 
-        const dpRow = document.getElementById("dpRow");
-        const paymentOptions = document.querySelectorAll(".payment-option");
-        const qtyInput = document.getElementById("qtyInput");
-        const totalPrice = document.getElementById("totalPrice");
-        const summaryTotal = document.getElementById("summaryTotal");
-        const dpPrice = document.getElementById("dpPrice");
-        const paxText = document.getElementById("paxText");
+            const dpRow = document.getElementById("dpRow");
+            const paymentOptions = document.querySelectorAll(".payment-option");
+            const qtyInput = document.getElementById("qtyInput");
+            const totalPrice = document.getElementById("totalPrice");
+            const summaryTotal = document.getElementById("summaryTotal");
+            const dpPrice = document.getElementById("dpPrice");
+            const paxText = document.getElementById("paxText");
 
-        if (!dpRow || paymentOptions.length === 0) return;
+            if (!dpRow || paymentOptions.length === 0) return;
 
-        function toggleDP() {
+            function toggleDP() {
 
-            const selected = document.querySelector(".payment-option:checked");
+                const selected = document.querySelector(".payment-option:checked");
 
-            if (selected.value === "dp") {
+                if (selected.value === "dp") {
 
-                dpRow.style.display = "flex";
+                    dpRow.style.display = "flex";
 
-            } else {
+                } else {
 
-                dpRow.style.display = "none";
+                    dpRow.style.display = "none";
+
+                }
 
             }
 
-        }
+            // jalankan saat load
+            toggleDP();
 
-        // jalankan saat load
-        toggleDP();
+            // jalankan saat radio berubah
+            paymentOptions.forEach(function(option) {
+                option.addEventListener("change", toggleDP);
+            });
 
-        // jalankan saat radio berubah
-        paymentOptions.forEach(function(option) {
-            option.addEventListener("change", toggleDP);
+
+            if (!qtyInput) return;
+
+            const price = {{ $trip->destination->price }};
+
+            function updatePrice() {
+
+                let qty = parseInt(qtyInput.value);
+
+                let total = price * qty;
+                let dp = total / 2;
+
+                paxText.innerText = qty + " Pax";
+
+                totalPrice.innerText = total.toLocaleString("id-ID");
+                summaryTotal.innerText = total.toLocaleString("id-ID");
+                dpPrice.innerText = dp.toLocaleString("id-ID");
+
+            }
+
+            qtyInput.addEventListener("input", updatePrice);
+
+            updatePrice();
+
         });
-
-
-        if (!qtyInput) return;
-
-        const price = {{ $trip->destination->price }};
-
-        function updatePrice() {
-
-            let qty = parseInt(qtyInput.value);
-
-            let total = price * qty;
-            let dp = total / 2;
-
-            paxText.innerText = qty + " Pax";
-
-            totalPrice.innerText = total.toLocaleString("id-ID");
-            summaryTotal.innerText = total.toLocaleString("id-ID");
-            dpPrice.innerText = dp.toLocaleString("id-ID");
-
-        }
-
-        qtyInput.addEventListener("input", updatePrice);
-
-        updatePrice();
-
-    });
-</script>
+    </script>
 @endisset

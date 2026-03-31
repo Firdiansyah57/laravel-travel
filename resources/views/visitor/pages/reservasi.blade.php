@@ -59,8 +59,8 @@
                                     Nama Pemesan <span class="required">*</span>
                                 </label>
 
-                                <input type="text" name="name" class="form-control booking-input"
-                                    placeholder="Nama lengkap" required>
+                                <input type="text" name="name" value="{{ auth()->user()->name }}"
+                                    class="form-control booking-input" required>
 
                             </div>
 
@@ -71,8 +71,8 @@
                                     E-Mail <span class="required">*</span>
                                 </label>
 
-                                <input type="email" name="email" class="form-control booking-input"
-                                    placeholder="email@gmail.com" required>
+                                <input type="email" name="email" value="{{ auth()->user()->email }}"
+                                    class="form-control booking-input" readonly>
 
                                 <small class="form-text text-muted">
                                     Diperoleh pada saat anda melakukan login

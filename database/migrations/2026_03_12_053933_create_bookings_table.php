@@ -12,20 +12,21 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('bookings', function (Blueprint $table) {
-    $table->id();
-    $table->foreignId('trip_schedule_id')->constrained()->cascadeOnDelete();
+            $table->id();
+            $table->foreignId('trip_schedule_id')->constrained()->cascadeOnDelete();
 
-    $table->string('name');
-    $table->string('email');
-    $table->string('phone');
+            $table->string('name');
+            $table->string('email');
+            $table->string('phone');
 
-    $table->integer('qty');
-    $table->integer('total_price');
+            $table->integer('qty');
+            $table->integer('total_price');
 
-    $table->enum('status',['pending','paid','cancelled'])->default('pending');
+            $table->enum('status', ['pending', 'paid', 'cancelled'])->default('pending');
 
-    $table->timestamps();
-});
+            $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+            $table->timestamps();
+        });
     }
 
     /**
