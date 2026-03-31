@@ -174,12 +174,12 @@
                                     <td>
                                         Rp {{ number_format($trip->destination->price, 0, ',', '.') }}/pax
                                     </td>
-                                    <td>Harga Weekend</td>
+                                    {{-- <td>Harga Weekend</td> --}}
                                 </tr>
 
                             </table>
 
-                            <a href="{{ route('reservasi.create',$trip->id) }}" class="btn btn-success btn-block">
+                            <a href="{{ route('reservasi.create', $trip->id) }}" class="btn btn-success btn-block">
 
                                 Pesan Paket Ini
 
