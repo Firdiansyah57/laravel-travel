@@ -10,8 +10,12 @@ use Illuminate\Http\Request;
 
 class GoogleController extends Controller
 {
-    public function redirect()
+    public function redirect(Request $request)
     {
+        if ($request->has('redirect')) {
+            session(['url.intended' => $request->redirect]);
+        }
+
         return Socialite::driver('google')->redirect();
     }
 

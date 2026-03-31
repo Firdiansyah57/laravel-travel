@@ -6,7 +6,7 @@
     <div class="container mt-5">
         <br>
         <br>
-        <h3>History Reservasi</h3>
+        <h3>Booking History</h3>
 
         @if ($bookings->count() > 0)
             <table class="table mt-3">

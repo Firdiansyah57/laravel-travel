@@ -5,6 +5,8 @@
 
     <div class="container mt-5">
 
+        <br>
+        <br>
         {{-- NOTIF --}}
         @if (session('success'))
             <div class="alert alert-success alert-dismissible fade show">
@@ -13,7 +15,6 @@
             </div>
         @endif
 
-        <br>
         <br>
         <h2>Pembayaran</h2>
 
