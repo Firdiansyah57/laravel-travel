@@ -150,7 +150,7 @@
                         @foreach ($trip->destination->galleries as $gallery)
                             <div class="col-4 mb-3">
 
-                                <img src="{{ asset('images/gallery/' . $gallery->image) }}" class="img-fluid rounded">
+                                <img src="{{ asset('images/gallery/' . $gallery->image) }}" class="glightbox gallery-img">
 
                             </div>
                         @endforeach

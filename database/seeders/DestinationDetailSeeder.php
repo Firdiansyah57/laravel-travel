@@ -15,20 +15,39 @@ class DestinationDetailSeeder extends Seeder
     /**
      * Run the database seeds.
      */
-    public function run(): void
+public function run(): void
 {
     $destinations = Destination::all();
 
+    $galleryMap = [
+        'bromo' => ['bromo1.webp', 'bromo8.webp', 'bromo9.webp'],
+        'rajaampat' => ['rajaampat1.webp', 'rajaampat2.webp', 'rajaampat3.webp'],
+        'labuanbajo' => ['labuanbajo1.webp', 'labuanbajo2.webp', 'labuanbajo3.webp'],
+        'bali' => ['bali1.webp', 'bali2.webp', 'bali3.webp'],
+        'tumpaksewu' => ['tumpaksewu1.webp', 'tumpaksewu2.webp', 'tumpaksewu3.webp'],
+        'dieng' => ['dieng1.webp', 'dieng2.webp', 'dieng3.webp'],
+        'ijen' => ['ijen1.webp', 'ijen2.webp', 'ijen3.webp'],
+        'belitung' => ['belitung1.webp', 'belitung2.webp', 'belitung3.webp'],
+        'rinjani' => ['rinjani1.webp', 'rinjani2.webp', 'rinjani3.webp'],
+    ];
+
     foreach ($destinations as $destination) {
 
-        // Gallery
-        DestinationGallery::insert([
-            ['destination_id'=>$destination->id,'image'=>$destination->image],
-            ['destination_id'=>$destination->id,'image'=>$destination->image],
-            ['destination_id'=>$destination->id,'image'=>$destination->image],
-        ]);
+        // =========================
+        // GALLERY (FIX UTAMA 🔥)
+        // =========================
+        $images = $galleryMap[$destination->slug] ?? ['default1.jpg'];
 
-        // Facilities
+        foreach ($images as $img) {
+            DestinationGallery::create([
+                'destination_id' => $destination->id,
+                'image' => $img
+            ]);
+        }
+
+        // =========================
+        // FACILITIES
+        // =========================
         DestinationFacility::insert([
             ['destination_id'=>$destination->id,'facility'=>'Transportasi'],
             ['destination_id'=>$destination->id,'facility'=>'Driver / Guide'],
@@ -36,14 +55,18 @@ class DestinationDetailSeeder extends Seeder
             ['destination_id'=>$destination->id,'facility'=>'Dokumentasi'],
         ]);
 
-        // Spots
+        // =========================
+        // SPOTS
+        // =========================
         DestinationSpot::insert([
             ['destination_id'=>$destination->id,'spot_name'=>'Spot Wisata 1'],
             ['destination_id'=>$destination->id,'spot_name'=>'Spot Wisata 2'],
             ['destination_id'=>$destination->id,'spot_name'=>'Spot Wisata 3'],
         ]);
 
-        // Itinerary
+        // =========================
+        // ITINERARY
+        // =========================
         DestinationItinerary::insert([
             [
                 'destination_id'=>$destination->id,
@@ -64,3 +87,4 @@ class DestinationDetailSeeder extends Seeder
     }
 }
 }
+

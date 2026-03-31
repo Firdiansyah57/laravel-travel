@@ -13,7 +13,7 @@ class DestinationSeeder extends Seeder
         DB::table('destinations')->insert([
             [
                 'title' => 'Bromo Sunrise 1Day Tour',
-                'slug' => Str::slug('Bromo Sunrise 1Day Tour'),
+                'slug' => Str::slug('bromo'),
                 'image' => 'bromo.webp',
                 'description' => 'Nikmati sunrise terbaik di Gunung Bromo dengan jeep tour.',
                 'price' => 350000,
@@ -23,7 +23,7 @@ class DestinationSeeder extends Seeder
             ],
             [
                 'title' => 'Raja Ampat Island 3D2N',
-                'slug' => Str::slug('Raja Ampat Island 3D2N'),
+                'slug' => Str::slug('rajaampat'),
                 'image' => 'rajaampat.webp',
                 'description' => 'Explore surga bawah laut Raja Ampat selama 3 hari.',
                 'price' => 4500000,
@@ -33,7 +33,7 @@ class DestinationSeeder extends Seeder
             ],
             [
                 'title' => 'Labuan Bajo & Komodo Island 3D2N',
-                'slug' => Str::slug('Labuan Bajo & Komodo Island 3D2N'),
+                'slug' => Str::slug('labuanbajo'),
                 'image' => 'komodo.webp',
                 'description' => 'Petualangan melihat Komodo Dragon dan island hopping.',
                 'price' => 3500000,
@@ -43,7 +43,7 @@ class DestinationSeeder extends Seeder
             ],
             [
                 'title' => 'Bali Tour 3D2N',
-                'slug' => Str::slug('Bali Tour 3D2N'),
+                'slug' => Str::slug('bali'),
                 'image' => 'bali.webp',
                 'description' => 'Tour eksklusif menjelajahi tempat wisata terbaik di Bali.',
                 'price' => 3500000,
@@ -53,7 +53,7 @@ class DestinationSeeder extends Seeder
             ],
             [
                 'title' => 'Tumpak Sewu Waterfall Adventure 1Day Tour',
-                'slug' => Str::slug('Tumpak Sewu Waterfall Adventure 1Day Tour'),
+                'slug' => Str::slug('tumpaksewu'),
                 'image' => 'tumpaksewu.webp',
                 'description' => 'Petualangan melihat air terjun paling indah di Indonesia.',
                 'price' => 400000,
@@ -63,7 +63,7 @@ class DestinationSeeder extends Seeder
             ],
             [
                 'title' => 'Dieng Plateau 3D2N',
-                'slug' => Str::slug('Dieng Plateau 3D2N'),
+                'slug' => Str::slug('dieng'),
                 'image' => 'dieng.webp',
                 'description' => 'Wisata negeri di atas awan Dieng Plateau.',
                 'price' => 2500000,
@@ -73,7 +73,7 @@ class DestinationSeeder extends Seeder
             ],
             [
                 'title' => 'Kawah Ijen Blue Fire 1Day Tour',
-                'slug' => Str::slug('Kawah Ijen Blue Fire 1Day Tour'),
+                'slug' => Str::slug('ijen'),
                 'image' => 'ijen.webp',
                 'description' => 'Melihat fenomena blue fire langka di Kawah Ijen.',
                 'price' => 400000,
@@ -83,7 +83,7 @@ class DestinationSeeder extends Seeder
             ],
             [
                 'title' => 'Belitung Island 3D2N',
-                'slug' => Str::slug('Belitung Island 3D2N'),
+                'slug' => Str::slug('belitung'),
                 'image' => 'belitung.webp',
                 'description' => 'Explore pantai granit indah di Pulau Belitung.',
                 'price' => 3000000,
@@ -93,7 +93,7 @@ class DestinationSeeder extends Seeder
             ],
             [
                 'title' => 'Mount Rinjani Trekking 3D2N',
-                'slug' => Str::slug('Mount Rinjani Trekking 3D2N'),
+                'slug' => Str::slug('rinjani'),
                 'image' => 'rinjani.webp',
                 'description' => 'Pendakian Gunung Rinjani selama 3 hari 2 malam.',
                 'price' => 3000000,

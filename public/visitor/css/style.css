@@ -10479,3 +10479,24 @@ img:hover {
     border: none;
     padding: 8px 0;
 }
+
+
+/* WRAPPER */
+.gallery-img {
+    width: 100%;
+    height: 220px; /* atur tinggi seragam */
+    object-fit: cover; /* crop otomatis */
+    border-radius: 12px;
+}
+
+.gallery-img {
+    transition: 0.3s;
+}
+
+.gallery-img:hover {
+    transform: scale(1.05);
+}
+
+.col-4 {
+    padding: 6px;
+}
