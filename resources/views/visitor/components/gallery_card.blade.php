@@ -9,13 +9,21 @@
         </div>
 
         <div class="gallery-grid">
-            @foreach ($gallery as $item)
-                <div class="gallery-item">
-                    <div class="gallery-img"
-                        style="background-image: url('{{ asset('images/gallery/' . $item->image) }}');">
-                    </div>
-                </div>
-            @endforeach
+            @foreach($gallery as $item)
+<div class="gallery-item">
+
+    <a href="{{ asset('images/gallery/' . $item->image) }}" 
+       class="glightbox" 
+       data-gallery="trip-gallery">
+
+        <div class="gallery-img"
+            style="background-image: url('{{ asset('images/gallery/' . $item->image) }}');">
+        </div>
+
+    </a>
+
+</div>
+@endforeach
         </div>
 
         <div class="row mt-4">

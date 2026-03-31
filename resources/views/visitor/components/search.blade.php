@@ -1,7 +1,7 @@
 <section class="ftco-section ftco-no-pb ftco-no-pt">
     <div class="container">
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-12">
 
                 <div class="ftco-search">
                     <div class="tab-wrap">
@@ -9,37 +9,39 @@
 
                             <div class="tab-pane fade show active">
 
-                                <form action="{{ route('daftar_trip.index') }}" method="GET"
+                                <form action="{{ route('trip.destinations') }}" method="GET"
                                     class="search-property-1 w-100">
 
-                                    <div class="row no-gutters">
+                                    <div class="row align-items-end">
 
                                         {{-- INPUT TANGGAL --}}
-                                        <div class="col-md-10 d-flex">
-                                            <div class="form-group p-4 border-0 w-100">
+                                        <div class="col-12 col-md-9">
+                                            <div class="form-group">
 
                                                 <label>Pilih Tanggal Trip</label>
 
-                                                <div class="form-field">
-                                                    <div class="icon">
-                                                        <span class="fa fa-calendar"></span>
-                                                    </div>
+                                                <div class="form-field position-relative">
+
+                                                    {{-- <span class="fa fa-calendar search-icon"></span> --}}
 
                                                     <input type="date" name="tanggal"
-                                                        value="{{ request('tanggal') }}" class="form-control">
+                                                        value="{{ request('tanggal') ?? now()->toDateString() }}"
+                                                        class="form-control">
+
                                                 </div>
 
                                             </div>
                                         </div>
 
                                         {{-- BUTTON SEARCH --}}
-                                        <div class="col-md-2 d-flex">
-                                            <div class="form-group p-4 border-0 w-100">
+                                        <div class="col-12 col-md-3">
+                                            <div class="form-group">
 
-                                                <label style="opacity:0;">Search</label>
+                                                <button type="submit" class="btn btn-primary w-100 search-btn">
 
-                                                <input type="submit" value="Search"
-                                                    class="form-control btn btn-primary">
+                                                    Search
+
+                                                </button>
 
                                             </div>
                                         </div>

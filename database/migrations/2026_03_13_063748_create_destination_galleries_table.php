@@ -11,13 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('daftar_trip', function (Blueprint $table) {
+        Schema::create('destination_galleries', function (Blueprint $table) {
+
             $table->id();
-            $table->date('tanggal');
+
+            $table->foreignId('destination_id')
+                ->constrained()
+                ->cascadeOnDelete();
+
             $table->string('image');
-            $table->string('title');
-            $table->integer('price');
-            $table->integer('quota');
+
             $table->timestamps();
         });
     }
@@ -27,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('daftar_trip');
+        Schema::dropIfExists('destination_galleries');
     }
 };

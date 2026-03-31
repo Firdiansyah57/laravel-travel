@@ -11,13 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tentang_kami_2', function (Blueprint $table) {
-            $table->id();
-            $table->string('icon');
-            $table->string('title');
-            $table->text('description');
-            $table->timestamps();
-        });
+        Schema::create('trip_schedules', function (Blueprint $table) {
+    $table->id();
+    $table->foreignId('destination_id')->constrained()->cascadeOnDelete();
+    $table->date('trip_date');
+    $table->integer('quota');
+    $table->timestamps();
+});
     }
 
     /**
@@ -25,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tentang_kami_2');
+        Schema::dropIfExists('trip_schedules');
     }
 };

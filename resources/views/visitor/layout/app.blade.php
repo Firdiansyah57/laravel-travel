@@ -8,7 +8,7 @@
 <body>
 
     <!-- NAVBAR -->
-    @include('visitor.components.navbar')
+    {{-- @include('visitor.components.navbar') --}}
 
     {{-- @yield('content') --}}
     @yield('content')

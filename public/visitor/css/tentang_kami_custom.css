@@ -1,0 +1,59 @@
+/* ===============================
+   ABOUT FEATURES SECTION
+================================ */
+
+.about-features{
+    background:#f8f9fb;
+}
+
+/* CARD */
+.about-features .feature-box{
+    text-align:center;
+    padding:20px;
+    transition:0.3s;
+}
+
+.about-features .feature-box:hover{
+    transform:translateY(-5px);
+}
+
+/* ICON */
+.about-features .feature-icon{
+    margin-bottom:15px;
+}
+
+.about-features .feature-icon img{
+    width:60px;
+    height:auto;
+    max-width:60px;
+    display:block;
+    margin:0 auto;
+}
+
+/* TITLE */
+.about-features .feature-title{
+    font-weight:700;
+    font-size:18px;
+    color:#1d2c4c;
+    margin-bottom:10px;
+}
+
+/* DESCRIPTION */
+.about-features .feature-desc{
+    font-size:14px;
+    color:#6c757d;
+    line-height:1.6;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px){
+
+    .about-features .feature-icon img{
+        width:50px;
+    }
+
+    .about-features .feature-title{
+        font-size:16px;
+    }
+
+}

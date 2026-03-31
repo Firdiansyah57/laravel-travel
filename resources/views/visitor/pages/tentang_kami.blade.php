@@ -1,6 +1,8 @@
 @extends('visitor.layout.app')
 
 @section('content')
+@include('visitor.components.navbar_custom')
+
     <section class="ftco-section ">
 
         <div class="container">
