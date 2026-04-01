@@ -33,7 +33,7 @@
 
                             <h3>{{ $item->destination->title }}</h3>
 
-                            <p>Quota : {{ $item->quota }} orang</p>
+                            <p>Quota : {{ $item->destination->quota }} orang</p>
 
                             <a href="{{ route('trip.detail', $item->id) }}" class="btn btn-primary btn-sm">
                                 Book Now

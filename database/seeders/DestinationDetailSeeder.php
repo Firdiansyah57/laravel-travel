@@ -22,7 +22,7 @@ public function run(): void
     $galleryMap = [
         'bromo' => ['bromo1.webp', 'bromo8.webp', 'bromo9.webp'],
         'rajaampat' => ['rajaampat1.webp', 'rajaampat2.webp', 'rajaampat3.webp'],
-        'labuanbajo' => ['labuanbajo1.webp', 'labuanbajo2.webp', 'labuanbajo3.webp'],
+        'labuanbajo' => ['labuhanbajo1.webp', 'labuhanbajo2.webp', 'labuhanbajo3.webp'],
         'bali' => ['bali1.webp', 'bali2.webp', 'bali3.webp'],
         'tumpaksewu' => ['tumpaksewu1.webp', 'tumpaksewu2.webp', 'tumpaksewu3.webp'],
         'dieng' => ['dieng1.webp', 'dieng2.webp', 'dieng3.webp'],
