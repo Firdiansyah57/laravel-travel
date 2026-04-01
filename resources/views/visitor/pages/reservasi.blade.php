@@ -119,10 +119,10 @@
                                 </label>
 
                                 <input type="number" name="qty" id="qtyInput" class="form-control booking-input"
-                                    value="1" min="1" max="{{ $trip->quota }}" required>
+                                    value="1" min="1" max="{{ $trip->destination->quota }}" required>
 
                                 <small class="text-muted">
-                                    Maksimal {{ $trip->quota }} orang
+                                    Maksimal {{ $trip->destination->quota }} orang
                                 </small>
 
                             </div>

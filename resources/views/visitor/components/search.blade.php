@@ -10,7 +10,7 @@
                             <div class="tab-pane fade show active">
 
                                 <form action="{{ route('trip.destinations') }}" method="GET"
-                                    class="search-property-1 w-100">
+                                      class="search-property-1 w-100">
 
                                     <div class="row align-items-end">
 
@@ -22,11 +22,14 @@
 
                                                 <div class="form-field position-relative">
 
-                                                    {{-- <span class="fa fa-calendar search-icon"></span> --}}
-
-                                                    <input type="date" name="tanggal"
+                                                    <input
+                                                        type="date"
+                                                        name="tanggal"
                                                         value="{{ request('tanggal') ?? now()->toDateString() }}"
-                                                        class="form-control">
+                                                        min="{{ now()->toDateString() }}" {{-- 🔥 INI KUNCI UTAMA --}}
+                                                        class="form-control"
+                                                        required
+                                                    >
 
                                                 </div>
 
@@ -38,9 +41,7 @@
                                             <div class="form-group">
 
                                                 <button type="submit" class="btn btn-primary w-100 search-btn">
-
                                                     Search
-
                                                 </button>
 
                                             </div>

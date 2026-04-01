@@ -22,47 +22,48 @@ class BookingController extends Controller
     }
 
     // 🔹 SIMPAN BOOKING
-    public function store(Request $request)
-    {
-        // ✅ VALIDASI
-        $request->validate([
-            'schedule_id' => 'required|exists:trip_schedules,id',
-            'name' => 'required|string|max:255',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'qty' => 'required|integer|min:1'
-        ]);
+  public function store(Request $request)
+{
+    $request->validate([
+        'schedule_id' => 'required',
+        'name' => 'required',
+        'email' => 'required|email',
+        'phone' => 'required',
+        'qty' => 'required|integer|min:1'
+    ]);
 
-        $schedule = TripSchedule::with(['destination', 'bookings'])
-            ->findOrFail($request->schedule_id);
+    $trip = TripSchedule::with('destination','bookings')
+        ->findOrFail($request->schedule_id);
 
-        // ✅ CEK QUOTA
-        $booked = $schedule->bookings->sum('qty');
-        $sisaQuota = $schedule->quota - $booked;
+    // 🔥 HITUNG QUOTA
+    $booked = $trip->bookings->sum('qty');
+    $sisa = $trip->destination->quota - $booked;
 
-        if ($request->qty > $sisaQuota) {
-            return back()->with('error', 'Quota tidak mencukupi!');
-        }
-
-        // ✅ HITUNG TOTAL
-        $total = $schedule->destination->price * $request->qty;
-
-        // ✅ SIMPAN
-        $booking = Booking::create([
-            'trip_schedule_id' => $schedule->id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'qty' => $request->qty,
-            'total_price' => $total,
-            'status' => 'pending'
-        ]);
-
-        // ✅ REDIRECT KE PAYMENT
-        return redirect()
-            ->route('payment.show', $booking->id)
-            ->with('success', 'Reservasi berhasil! Silakan lakukan pembayaran.');
+    // 🔥 ANTI OVERBOOKING
+    if ($request->qty > $sisa) {
+        return back()->with('error','Kuota tidak cukup');
     }
+
+    // 🔥 HITUNG TOTAL
+    $price = $trip->destination->price;
+    $total = $price * $request->qty;
+
+    // 🔥 SIMPAN BOOKING
+    $booking = \App\Models\Booking::create([
+        'user_id' => auth()->id(),
+        'trip_schedule_id' => $trip->id,
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone' => $request->phone,
+        'qty' => $request->qty,
+        'total_price' => $total,
+        'status' => 'pending'
+    ]);
+
+    // 🔥 REDIRECT KE PAYMENT (INI YANG FIX LOOPING)
+    return redirect()->route('payment.show', $booking->id)
+        ->with('success','Reservasi berhasil dibuat');
+}
 
     // 🔹 HISTORY BOOKING
     public function myBooking()

@@ -19,10 +19,10 @@ use App\Http\Controllers\Auth\GoogleController;
 |--------------------------------------------------------------------------
 */
 
+Route::get('/', [HeroController::class, 'index'])->name('home');
+
 Route::get('/trip-destinations', [TripController::class, 'destinations'])
     ->name('trip.destinations');
-
-Route::get('/', [HeroController::class, 'index'])->name('home');
 
 Route::get('/daftar-trip', [DestinationController::class, 'index'])
     ->name('destinations.index');
@@ -35,6 +35,16 @@ Route::get('/gallery', [GalleryController::class, 'index'])
 
 Route::get('/tentang-kami', [TentangKamiController::class, 'index'])
     ->name('tentang_kami.index');
+
+
+/*
+|--------------------------------------------------------------------------
+| 🔥 REALTIME QUOTA (NEW)
+|--------------------------------------------------------------------------
+*/
+
+Route::get('/check-quota/{id}', [TripController::class, 'checkQuota'])
+    ->name('trip.checkQuota');
 
 
 /*
@@ -68,16 +78,15 @@ Route::middleware('auth')->group(function () {
     Route::get('/payment/{id}', [BookingController::class, 'showPayment'])
         ->name('payment.show');
 
-    // konfirmasi bayar
+    // 🔹 KONFIRMASI
     Route::post('/booking/confirm/{id}', [BookingController::class, 'confirm'])
-        ->name('booking.confirm')
-        ->middleware('auth');
+        ->name('booking.confirm');
 
     // 🔹 HISTORY BOOKING
     Route::get('/my-booking', [BookingController::class, 'myBooking'])
         ->name('booking.my');
 
-    // 🔹 LOGOUT (WAJIB POST)
+    // 🔹 LOGOUT
     Route::post('/logout', function (Request $request) {
         Auth::logout();
 

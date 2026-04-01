@@ -20,7 +20,6 @@ class TripScheduleSeeder extends Seeder
                 TripSchedule::create([
                     'destination_id' => $destination->id,
                     'trip_date' => Carbon::today()->addDays($i),
-                    'quota' => rand(6,12)
                 ]);
 
             }
