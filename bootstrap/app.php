@@ -15,6 +15,9 @@ return Application::configure(basePath: dirname(__DIR__))
         $middleware->redirectGuestsTo(function () {
             return route('google.login');
         });
+        $middleware->validateCsrfTokens(except: [
+            '/midtrans/callback', // Tambahkan ini
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

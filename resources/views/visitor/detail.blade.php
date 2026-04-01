@@ -117,8 +117,7 @@
                     <div class="row">
                         @foreach ($trip->destination->galleries as $gallery)
                             <div class="col-4 mb-3">
-                                <img src="{{ asset('images/gallery/' . $gallery->image) }}"
-                                     class="glightbox gallery-img">
+                                <img src="{{ asset('images/gallery/' . $gallery->image) }}" class="glightbox gallery-img">
                             </div>
                         @endforeach
                     </div>
@@ -142,15 +141,13 @@
 
                             {{-- 🔥 BUTTON REALTIME --}}
                             @auth
-                                <a href="{{ route('reservasi.create', $trip->id) }}"
-                                   class="btn btn-success btn-block"
-                                   id="booking-btn">
+                                <a href="{{ route('reservasi.create', $trip->id) }}" class="btn btn-success btn-block"
+                                    id="booking-btn">
                                     Pesan Paket Ini
                                 </a>
                             @else
                                 <a href="{{ route('google.login', ['redirect' => route('reservasi.create', $trip->id)]) }}"
-                                   class="btn btn-success btn-block"
-                                   id="booking-btn">
+                                    class="btn btn-success btn-block" id="booking-btn">
                                     Login untuk Booking
                                 </a>
                             @endauth
@@ -197,5 +194,4 @@
         // auto refresh tiap 5 detik
         setInterval(checkQuota, 5000);
     </script>
-
 @endsection

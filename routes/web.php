@@ -4,14 +4,19 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-// CONTROLLERS
+// CONTROLLERS VISITOR
 use App\Http\Controllers\visitor\HeroController;
 use App\Http\Controllers\visitor\DestinationController;
 use App\Http\Controllers\visitor\GalleryController;
 use App\Http\Controllers\visitor\TentangKamiController;
 use App\Http\Controllers\visitor\TripController;
 use App\Http\Controllers\visitor\BookingController;
+
+// REDIRECT AKUN GOOGLE
 use App\Http\Controllers\Auth\GoogleController;
+
+// PAYMENT GATEWAY MIDTRANS
+use App\Http\Controllers\visitor\PaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,13 +41,15 @@ Route::get('/gallery', [GalleryController::class, 'index'])
 Route::get('/tentang-kami', [TentangKamiController::class, 'index'])
     ->name('tentang_kami.index');
 
+// MIDTRANS
+Route::post('/midtrans/callback', [PaymentController::class, 'callback']);
+
 
 /*
 |--------------------------------------------------------------------------
 | 🔥 REALTIME QUOTA (NEW)
 |--------------------------------------------------------------------------
 */
-
 Route::get('/check-quota/{id}', [TripController::class, 'checkQuota'])
     ->name('trip.checkQuota');
 
@@ -52,7 +59,6 @@ Route::get('/check-quota/{id}', [TripController::class, 'checkQuota'])
 | AUTH (GOOGLE LOGIN)
 |--------------------------------------------------------------------------
 */
-
 Route::get('/auth/google', [GoogleController::class, 'redirect'])
     ->name('google.login');
 
@@ -75,7 +81,7 @@ Route::middleware('auth')->group(function () {
         ->name('reservasi.store');
 
     // 🔹 PAYMENT
-    Route::get('/payment/{id}', [BookingController::class, 'showPayment'])
+    Route::get('/payment/{id}', [PaymentController::class, 'show'])
         ->name('payment.show');
 
     // 🔹 KONFIRMASI

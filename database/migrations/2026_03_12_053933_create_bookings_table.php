@@ -25,6 +25,10 @@ return new class extends Migration
             $table->enum('status', ['pending', 'paid', 'cancelled'])->default('pending');
 
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
+
+            $table->string('midtrans_order_id')->nullable();
+            $table->string('snap_token')->nullable();
+
             $table->timestamps();
         });
     }
