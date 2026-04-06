@@ -50,7 +50,9 @@ class TripController extends Controller
         ])->findOrFail($id);
 
         // 🔥 HITUNG QUOTA
-        $booked = $trip->bookings->sum('qty');
+        $booked = $trip->bookings()
+            ->whereIn('status', ['paid', 'dp50%']) // HANYA hitung yang sudah bayar/DP
+            ->sum('qty');
         $sisaQuota = $trip->destination->quota - $booked;
 
         return view('visitor.detail', compact(
@@ -65,14 +67,13 @@ class TripController extends Controller
     {
         $trip = TripSchedule::with('destination', 'bookings')->findOrFail($id);
 
-        $booked = $trip->bookings->sum('qty');
+        $booked = $trip->bookings()
+            ->whereIn('status', ['paid', 'dp50%']) // HANYA hitung yang sudah bayar/DP
+            ->sum('qty');
         $sisa = $trip->destination->quota - $booked;
 
         return response()->json([
             'quota' => $sisa
         ]);
     }
-
-
-    
 }

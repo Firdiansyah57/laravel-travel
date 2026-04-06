@@ -20,12 +20,15 @@ return new class extends Migration
             $table->string('phone');
 
             $table->integer('qty');
-            $table->integer('total_price');
+            $table->integer('total_price'); // Nominal yang harus dibayar saat ini (misal 50% nya)
 
-            $table->enum('status', ['pending', 'paid', 'cancelled'])->default('pending');
+            // Tambahkan kolom ini
+            $table->enum('payment_type', ['full', 'dp'])->default('full');
+
+            // Sesuaikan enum status dengan yang kamu buat tadi
+            $table->enum('status', ['pending', 'paid', 'dp50%', 'cancelled', 'draft'])->default('draft');
 
             $table->foreignId('user_id')->nullable()->constrained()->nullOnDelete();
-
             $table->string('midtrans_order_id')->nullable();
             $table->string('snap_token')->nullable();
 

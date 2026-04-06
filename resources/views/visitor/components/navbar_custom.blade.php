@@ -16,6 +16,18 @@
                 <li class="nav-item active">
                     <a href="{{ route('tentang_kami.index') }}" class="nav-link">Tentang Kami</a>
                 </li>
+                @php
+                    $cartCount = \App\Models\Booking::where('user_id', auth()->id())
+                        ->where('status', 'draft')
+                        ->count();
+                @endphp
+
+                <li class="nav-item">
+                    <a href="{{ route('booking.my') }}" class="nav-link">
+                        <i class="fa fa-shopping-cart"></i>
+                        <span id="cart-badge" class="badge badge-primary">0</span>
+                    </a>
+                </li>
 
                 @auth
                     @php
@@ -33,15 +45,6 @@
                         </a>
 
                         <div class="dropdown-menu dropdown-menu-right">
-                            <span class="dropdown-item">
-                                📦 Reservasi: <strong>{{ $bookingCount }}</strong>
-                            </span>
-
-                            <a href="{{ route('booking.my') }}" class="dropdown-item">
-                                📋 History Reservasi
-                            </a>
-
-                            <div class="dropdown-divider"></div>
 
                             <form action="{{ route('logout') }}" method="POST">
                                 @csrf
@@ -62,3 +65,31 @@
         </div>
     </div>
 </nav>
+
+
+<script>
+    function updateCartCount() {
+        @auth
+        fetch("{{ route('cart.count') }}")
+            .then(response => response.json())
+            .then(data => {
+                // Update semua elemen dengan class 'cart-badge'
+                document.querySelectorAll('.cart-badge').forEach(el => {
+                    el.innerText = data.count;
+                    // Beri efek animasi kecil jika angka berubah
+                    el.style.transform = "scale(1.2)";
+                    setTimeout(() => el.style.transform = "scale(1)", 200);
+                });
+
+                // Juga update ID spesifik jika ada
+                const badgeId = document.getElementById('cart-badge');
+                if (badgeId) badgeId.innerText = data.count;
+            })
+            .catch(error => console.error('Error fetching cart count:', error));
+    @endauth
+    }
+
+    // Jalankan saat load dan setiap 10 detik
+    document.addEventListener('DOMContentLoaded', updateCartCount);
+    setInterval(updateCartCount, 10000);
+</script>

@@ -8,11 +8,13 @@ class Booking extends Model
 {
     protected $fillable = [
         'trip_schedule_id',
+        'user_id',
         'name',
         'email',
         'phone',
         'qty',
         'total_price',
+        'payment_type',
         'status'
     ];
 

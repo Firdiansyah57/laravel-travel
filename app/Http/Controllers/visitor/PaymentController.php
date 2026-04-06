@@ -21,16 +21,17 @@ class PaymentController extends Controller
         }
 
         // ✅ SET CONFIG MIDTRANS
-        Config::$serverKey = config('midtrans.server_key');
-        Config::$isProduction = config('midtrans.is_production');
+        Config::$serverKey = config('services.midtrans.server_key');
+        Config::$isProduction = config('services.midtrans.is_production');
         Config::$isSanitized = true;
         Config::$is3ds = true;
 
         // ✅ PARAMETER TRANSAKSI
         $params = [
             'transaction_details' => [
-                'order_id' => 'BOOK-' . $booking->id . '-' . time(),
-                'gross_amount' => (int) max(1, $booking->total_price),
+                // Ambil langsung dari kolom payment_type
+                'order_id' => 'BOOK-' . $booking->id . '-' . $booking->payment_type . '-' . time(),
+                'gross_amount' => (int) $booking->total_price,
             ],
             'customer_details' => [
                 'first_name' => $booking->name,
@@ -50,23 +51,29 @@ class PaymentController extends Controller
     }
     public function callback(Request $request)
     {
-        $serverKey = config('midtrans.server_key');
+        $serverKey = config('services.midtrans.server_key');
         $hashed = hash("sha512", $request->order_id . $request->status_code . $request->gross_amount . $serverKey);
 
         if ($hashed == $request->signature_key) {
-            if ($request->transaction_status == 'capture' || $request->transaction_status == 'settlement') {
-                // Kita harus mengambil ID booking dari order_id Midtrans
-                // Contoh order_id: BOOK-4-17112233
-                $parts = explode('-', $request->order_id);
-                $bookingId = $parts[1];
+            $parts = explode('-', $request->order_id);
 
-                $booking = Booking::find($bookingId);
-                if ($booking) {
-                    $booking->update(['status' => 'paid']);
-                }
+            // Pastikan explode menghasilkan array yang cukup
+            if (count($parts) < 3) return response()->json(['message' => 'Invalid ID'], 400);
+
+            $bookingId = $parts[1];
+            $type = $parts[2]; // 'dp' atau 'full'
+
+            $booking = Booking::find($bookingId);
+
+            if (!$booking) return response()->json(['message' => 'Not Found'], 404);
+
+            if (in_array($request->transaction_status, ['capture', 'settlement'])) {
+                $newStatus = ($type == 'dp') ? 'dp50%' : 'paid';
+                $booking->update(['status' => $newStatus]);
+            } elseif (in_array($request->transaction_status, ['expire', 'cancel', 'deny'])) {
+                $booking->update(['status' => 'cancelled']);
             }
         }
-
         return response()->json(['status' => 'success']);
     }
 }

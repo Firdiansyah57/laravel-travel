@@ -80,6 +80,12 @@ Route::middleware('auth')->group(function () {
     Route::post('/reservasi', [BookingController::class, 'store'])
         ->name('reservasi.store');
 
+    Route::get('/reservasi/edit/{id}', [BookingController::class, 'edit'])
+        ->name('reservasi.edit');
+
+    Route::put('/reservasi/update/{id}', [BookingController::class, 'update'])
+        ->name('reservasi.update');
+
     // 🔹 PAYMENT
     Route::get('/payment/{id}', [PaymentController::class, 'show'])
         ->name('payment.show');
@@ -92,6 +98,10 @@ Route::middleware('auth')->group(function () {
     Route::get('/my-booking', [BookingController::class, 'myBooking'])
         ->name('booking.my');
 
+    // DELETE BOOKING
+    Route::delete('/booking/delete/{id}', [BookingController::class, 'destroy'])
+        ->name('booking.destroy');
+
     // 🔹 LOGOUT
     Route::post('/logout', function (Request $request) {
         Auth::logout();
@@ -101,4 +111,20 @@ Route::middleware('auth')->group(function () {
 
         return redirect('/');
     })->name('logout');
+
+    Route::get('/cart/count', function () {
+        return response()->json([
+            'count' => \App\Models\Booking::where('user_id', auth()->id())
+                ->where('status', 'draft')
+                ->count()
+        ]);
+    })->name('cart.count');
+
+    // testing waktu payment limit
+    Route::get('/cleanup-tes', function () {
+        \App\Models\Booking::where('status', 'draft')
+            ->where('created_at', '<', now()->subMinutes(60))
+            ->delete();
+        return "Data draft yang lebih dari 1 menit sudah dibersihkan!";
+    });
 });

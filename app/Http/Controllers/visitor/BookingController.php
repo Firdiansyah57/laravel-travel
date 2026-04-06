@@ -15,7 +15,9 @@ class BookingController extends Controller
         $trip = TripSchedule::with(['destination', 'bookings'])
             ->findOrFail($id);
 
-        $booked = $trip->bookings->sum('qty');
+        $booked = $trip->bookings()
+            ->whereIn('status', ['paid', 'dp50%'])
+            ->sum('qty');
         $sisaQuota = $trip->quota - $booked;
 
         return view('visitor.pages.reservasi', compact('trip', 'sisaQuota'));
@@ -25,44 +27,42 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'schedule_id' => 'required',
-            'name' => 'required',
-            'email' => 'required|email',
-            'phone' => 'required',
-            'qty' => 'required|integer|min:1'
+            'schedule_id'  => 'required|exists:trip_schedules,id',
+            'name'         => 'required|string|max:255',
+            'email'        => 'required|email',
+            'phone'        => 'required',
+            'qty'          => 'required|integer|min:1',
+            'payment_type' => 'required|in:full,dp', // Tambahkan validasi ini
         ]);
 
-        $trip = TripSchedule::with('destination', 'bookings')
-            ->findOrFail($request->schedule_id);
+        $trip = TripSchedule::with('destination')->findOrFail($request->schedule_id);
 
-        // 🔥 HITUNG QUOTA
-        $booked = $trip->bookings->sum('qty');
+        // 🔥 CEK KUOTA REALTIME (Opsional tapi disarankan)
+        $booked = $trip->bookings()->whereIn('status', ['paid', 'dp50%'])->sum('qty');
         $sisa = $trip->destination->quota - $booked;
 
-        // 🔥 ANTI OVERBOOKING
         if ($request->qty > $sisa) {
-            return back()->with('error', 'Kuota tidak cukup');
+            return back()->with('error', 'Maaf, sisa kuota hanya ' . $sisa . ' orang.');
         }
 
-        // 🔥 HITUNG TOTAL
-        $price = $trip->destination->price;
-        $total = $price * $request->qty;
+        $hargaAsli = $trip->destination->price * $request->qty;
 
-        // 🔥 SIMPAN BOOKING
-        $booking = \App\Models\Booking::create([
-            'user_id' => auth()->id(),
+        // Hitung nominal bayar berdasarkan pilihan
+        $amountToPay = ($request->payment_type == 'dp') ? ($hargaAsli * 0.5) : $hargaAsli;
+
+        $booking = Booking::create([
+            'user_id'          => auth()->id(),
             'trip_schedule_id' => $trip->id,
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone' => $request->phone,
-            'qty' => $request->qty,
-            'total_price' => $total,
-            'status' => 'pending'
+            'name'             => $request->name,
+            'email'            => $request->email,
+            'phone'            => $request->phone,
+            'qty'              => $request->qty,
+            'total_price'      => $amountToPay,
+            'payment_type'     => $request->payment_type,
+            'status'           => 'draft' // Masuk ke keranjang dulu
         ]);
 
-        // 🔥 REDIRECT KE PAYMENT (INI YANG FIX LOOPING)
-        return redirect()->route('payment.show', $booking->id)
-            ->with('success', 'Reservasi berhasil dibuat');
+        return redirect()->route('booking.my')->with('success', 'Berhasil masuk keranjang!');
     }
 
     // 🔹 HISTORY BOOKING
@@ -100,5 +100,55 @@ class BookingController extends Controller
         return redirect()
             ->route('booking.my')
             ->with('success', 'Pembayaran berhasil dikonfirmasi!');
+    }
+
+
+    public function edit($id)
+    {
+        $booking = Booking::where('id', $id)->where('user_id', auth()->id())->firstOrFail();
+        $trip = TripSchedule::with('destination')->findOrFail($booking->trip_schedule_id);
+
+        // Pastikan nama filenya cocok: visitor.pages.reservasi_edit
+        return view('visitor.pages.reservasi_edit', compact('booking', 'trip'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'qty' => 'required|integer|min:1',
+            'name' => 'required',
+            'phone' => 'required'
+        ]);
+
+        $booking = Booking::findOrFail($id);
+        $unitPrice = $booking->tripSchedule->destination->price;
+
+        // Hitung ulang total berdasarkan Qty baru
+        $totalAsli = $unitPrice * $request->qty;
+
+        // JAGA RUMUS DP: Jika tipe awal adalah DP, maka harga yang disimpan tetap 50%
+        $newTotalPrice = ($booking->payment_type == 'dp') ? ($totalAsli * 0.5) : $totalAsli;
+
+        $booking->update([
+            'name' => $request->name,
+            'phone' => $request->phone,
+            'qty' => $request->qty,
+            'total_price' => $newTotalPrice,
+        ]);
+
+        return redirect()->route('booking.my')->with('success', 'Data reservasi berhasil diperbarui!');
+    }
+
+    // Hapus dari Keranjang
+    public function destroy($id)
+    {
+        $booking = Booking::where('id', $id)->where('user_id', auth()->id())->first();
+
+        if ($booking) {
+            $booking->delete();
+            return redirect()->back()->with('success', 'Berhasil dihapus!');
+        }
+
+        return redirect()->back()->with('error', 'Gagal menghapus.');
     }
 }
