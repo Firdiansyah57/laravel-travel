@@ -10500,3 +10500,169 @@ img:hover {
 .col-4 {
     padding: 6px;
 }
+
+/* =========================
+   NAVBAR MOBILE FIX
+========================= */
+
+@media (max-width: 991px) {
+
+    #ftco-navbar-1 {
+        padding: 10px 0;
+    }
+
+    #ftco-nav {
+        background: rgba(0,0,0,0.85);
+        padding: 15px;
+        border-radius: 10px;
+        margin-top: 10px;
+    }
+
+    #ftco-nav .navbar-nav {
+        align-items: flex-start !important;
+    }
+
+    #ftco-nav .nav-item {
+        width: 100%;
+    }
+
+    #ftco-nav .nav-link {
+        padding: 12px 15px;
+        width: 100%;
+        display: block;
+    }
+
+    /* cart */
+    #ftco-nav .fa-shopping-cart {
+        margin-right: 8px;
+    }
+
+    #cart-badge {
+        margin-left: 5px;
+    }
+
+    /* user dropdown */
+    .navbar-nav .dropdown-menu {
+        background: rgba(0,0,0,0.9);
+        border: none;
+        margin-left: 10px;
+    }
+
+    .navbar-nav .dropdown-item {
+        color: white;
+    }
+
+    .navbar-nav .dropdown-item:hover {
+        background: rgba(255,255,255,0.1);
+    }
+
+    /* avatar user */
+    .navbar-nav img.rounded-circle {
+        width: 28px;
+        height: 28px;
+    }
+
+}
+
+
+/* footer */
+.exotic-footer {
+    background-color: #ff6600; /* Warna Oren Utama */
+    color: #ffffff;
+    padding: 80px 0 20px 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Tipografi */
+.brand-name {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.address, .phone {
+    font-size: 14px;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.widget-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 25px;
+}
+
+/* Link Styling */
+.footer-widget ul li {
+    margin-bottom: 12px;
+}
+
+.footer-widget ul li a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: 0.3s;
+    font-size: 14px;
+}
+
+.footer-widget ul li a:hover {
+    color: #000; /* Berubah jadi hitam saat hover agar kontras */
+    padding-left: 5px;
+}
+
+/* App Buttons (Mirip Gambar) */
+.app-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.app-btn {
+    display: flex;
+    align-items: center;
+    background: #000000; /* Hitam seperti referensi */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 12px;
+    width: 200px;
+    text-decoration: none;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: 0.3s;
+}
+
+.app-btn:hover {
+    background: #222;
+    transform: translateY(-3px);
+    color: #fff;
+}
+
+.app-btn i {
+    font-size: 24px;
+}
+
+.app-btn span {
+    font-size: 11px;
+    line-height: 1.2;
+}
+
+.app-btn b {
+    font-size: 16px;
+    display: block;
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    margin-top: 60px;
+    padding-top: 30px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+/* Responsif */
+@media (max-width: 768px) {
+    .footer-content {
+        text-align: center;
+    }
+    .app-buttons {
+        align-items: center;
+    }
+}

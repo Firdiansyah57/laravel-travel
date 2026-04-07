@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->integer('price');
             $table->string('location')->nullable();
+            $table->integer('quota');
             $table->timestamps();
         });
     }

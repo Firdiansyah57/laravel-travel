@@ -11,7 +11,13 @@
 
         <div class="row">
 
-            @foreach ($data as $item)
+           @forelse ($data as $item)
+                    @php
+                        $booked = $item->bookings->sum('qty');
+                        $sisaQuota = $item->destination->quota - $booked;
+                    @endphp
+
+
                 <div class="col-md-4 ftco-animate">
 
                     <div class="project-wrap">
@@ -33,17 +39,32 @@
 
                             <h3>{{ $item->destination->title }}</h3>
 
-                            <p>Quota : {{ $item->destination->quota }} orang</p>
+                            {{-- QUOTA --}}
+                            <p>
+                                Quota :
+                                <strong>
+                                    {{ $sisaQuota > 0 ? $sisaQuota : 0 }}
+                                </strong> orang
+                            </p>
 
-                            <a href="{{ route('trip.detail', $item->id) }}" class="btn btn-primary btn-sm">
-                                Book Now
-                            </a>
+                            {{-- BUTTON / STATUS --}}
+                            @if ($sisaQuota > 0)
+                                <a href="{{ route('trip.detail', $item->id) }}"
+                                   class="btn btn-primary btn-sm">
+                                    Book Now
+                                </a>
+                            @else
+                                <span class="badge badge-danger">
+                                    FULL BOOKED
+                                </span>
+                            @endif
 
                         </div>
 
                     </div>
 
                 </div>
+
             @endforeach
 
         </div>
@@ -51,7 +72,8 @@
         <div class="row mt-4">
             <div class="col-md-12 text-center ftco-animate">
 
-                <a href="{{ route('destinations.index') }}" class="btn btn-primary py-3 px-4">
+                <a href="{{ route('destinations.index') }}"
+                   class="btn btn-primary py-3 px-4">
                     Search Destination
                 </a>
 

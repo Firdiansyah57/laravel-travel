@@ -68,8 +68,13 @@
                                             @endif
                                         </div>
 
+                                        <p class="mb-1">
+                                            📅 {{ \Carbon\Carbon::parse($b->trip_date)->format('d F Y') }}
+                                        </p>
+
                                         <p class="text-muted mb-2"><i class="fa fa-user mr-2"></i>{{ $b->name }}
-                                            ({{ $b->qty }} Pax)</p>
+                                            ({{ $b->qty }} Pax)
+                                        </p>
                                         <div class="h5 mb-0 font-weight-bold text-success">
                                             Rp {{ number_format($b->total_price, 0, ',', '.') }}
                                             @if ($b->payment_type == 'dp')

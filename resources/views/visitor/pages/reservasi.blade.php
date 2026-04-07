@@ -19,7 +19,7 @@
                         <div class="card card-body border-0 shadow-sm mb-4">
                             <h4 class="trip-title text-primary">Informasi Paket Trip</h4>
                             <p class="mb-1"><b>Judul :</b> {{ $trip->destination->title }}</p>
-                            <p><b>Tanggal :</b> {{ \Carbon\Carbon::parse($trip->trip_date)->format('d F Y') }}</p>
+                            <p><b>Tanggal Trip:</b> {{ \Carbon\Carbon::parse($trip->trip_date)->format('d F Y') }}</p>
                         </div>
 
                         <div class="card card-body border-0 shadow-sm">
@@ -44,6 +44,11 @@
                                 <small class="text-muted">Pastikan nomor WhatsApp aktif.</small>
                             </div>
 
+                            {{-- <div class="form-group">
+                                <label>Tanggal Trip</label>
+                                <input type="date" name="trip_date" class="form-control" required>
+                            </div> --}}
+
                             <div class="form-group mb-0">
                                 <label>Jumlah Peserta</label>
                                 <input type="number" name="qty" id="qtyInput" class="form-control" value="1"
@@ -56,7 +61,7 @@
 
                     {{-- RIGHT SIDE --}}
                     <div class="col-md-4">
-                        <div class="card card-body border-0 shadow-sm sticky-top" style="top: 100px;">
+                        <div class="card card-body border-0 shadow-sm " >
                             <h4 class="payment-title">Detail Biaya</h4>
                             <hr>
 

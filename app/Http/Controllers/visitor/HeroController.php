@@ -16,10 +16,23 @@ class HeroController extends Controller
     {
         $hero = Hero::first(); // ambil 1 data saja (hero utama)
 
-        $data = TripSchedule::with('destination')
-            ->orderBy('trip_date', 'asc')
+
+        $tanggal = $request->tanggal ?? today()->toDateString();
+        $data = TripSchedule::with(['destination', 'bookings'])
+            ->where('trip_date', $tanggal)
             ->take(3)
             ->get();
+
+        $trips = TripSchedule::with(['destination', 'bookings'])
+            ->where('trip_date', now()->toDateString())
+            ->limit(3)
+            ->get();
+
+        foreach ($trips as $trip) {
+            $terbooking = $trip->bookings->sum('jumlah_orang');
+            $trip->sisaQuota = $trip->quota - $terbooking;
+        }
+        
         $tentang_kami_2 = TentangKami2::all();
         $tentang_kami_3 = TentangKami3::all();
         $gallery = Gallery::orderBy('image')->take(5)->get();

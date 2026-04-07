@@ -1,65 +1,66 @@
-<footer class="ftco-footer bg-bottom ftco-no-pt" style="background-image: url(visitor/images/bg_3.jpg);">
+<footer class="exotic-footer">
     <div class="container">
-        <div class="row mb-5">
-            <div class="col-md pt-5">
-                <div class="ftco-footer-widget pt-md-5 mb-4">
-                    <h2 class="ftco-heading-2">About</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                    <ul class="ftco-footer-social list-unstyled float-md-left float-lft">
-                        <li class="ftco-animate"><a href="#"><span class="fa fa-twitter"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="fa fa-facebook"></span></a></li>
-                        <li class="ftco-animate"><a href="#"><span class="fa fa-instagram"></span></a></li>
-                    </ul>
+        <div class="row footer-content">
+            <div class="col-md-4 mb-4">
+                <div class="footer-widget">
+                    <div class="footer-logo mb-3">
+                        <img src="path-ke-logo-kamu.png" alt="Logo" class="mr-2" style="width: 40px;">
+                        <span class="brand-name">TripGo</span>
+                    </div>
+                    <p class="address">
+                        Yogyakarta, Indonesia<br>
+                        Travel Agency & Tour Organizer<br>
+                        Indonesia Destination Specialist
+                    </p>
+                    <p class="phone">
+                        <i class="fa fa-phone mr-2"></i> +62816581668
+                    </p>
                 </div>
             </div>
-            <div class="col-md pt-5 border-left">
-                <div class="ftco-footer-widget pt-md-5 mb-4 ml-md-5">
-                    <h2 class="ftco-heading-2">Infromation</h2>
+
+            <div class="col-md-2 mb-4">
+                <div class="footer-widget">
+                    <h3 class="widget-title">Navigasi</h3>
                     <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Online Enquiry</a></li>
-                        <li><a href="#" class="py-2 d-block">General Enquiries</a></li>
-                        <li><a href="#" class="py-2 d-block">Booking Conditions</a></li>
-                        <li><a href="#" class="py-2 d-block">Privacy and Policy</a></li>
-                        <li><a href="#" class="py-2 d-block">Refund Policy</a></li>
-                        <li><a href="#" class="py-2 d-block">Call Us</a></li>
+                        <li><a href="#">Daftar Trip</a></li>
+                        <li><a href="#">Gallery</a></li>
+                        <li><a href="#">Tentang Kami</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">FAQ</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md pt-5 border-left">
-                <div class="ftco-footer-widget pt-md-5 mb-4">
-                    <h2 class="ftco-heading-2">Experience</h2>
-                    <ul class="list-unstyled">
-                        <li><a href="#" class="py-2 d-block">Adventure</a></li>
-                        <li><a href="#" class="py-2 d-block">Hotel and Restaurant</a></li>
-                        <li><a href="#" class="py-2 d-block">Beach</a></li>
-                        <li><a href="#" class="py-2 d-block">Nature</a></li>
-                        <li><a href="#" class="py-2 d-block">Camping</a></li>
-                        <li><a href="#" class="py-2 d-block">Party</a></li>
+
+            <div class="col-md-2 mb-4">
+                <div class="footer-widget">
+                    <h3 class="widget-title">Ikuti Kami</h3>
+                    <ul class="list-unstyled social-links">
+                        <li><a href="#"><i class="fa fa-instagram"></i> Instagram</a></li>
+                        <li><a href="#"><i class="fa fa-tiktok"></i> Tiktok</a></li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md pt-5 border-left">
-                <div class="ftco-footer-widget pt-md-5 mb-4">
-                    <h2 class="ftco-heading-2">Have a Questions?</h2>
-                    <div class="block-23 mb-3">
-                        <ul>
-                            <li><span class="icon fa fa-map-marker"></span><span class="text">203 Fake St. Mountain View, San Francisco, California, USA</span></li>
-                            <li><a href="#"><span class="icon fa fa-phone"></span><span class="text">+2 392 3929 210</span></a></li>
-                            <li><a href="#"><span class="icon fa fa-paper-plane"></span><span class="text">info@yourdomain.com</span></a></li>
-                        </ul>
+
+            <div class="col-md-4 mb-4">
+                <div class="footer-widget">
+                    <h3 class="widget-title">Unduh Aplikasi</h3>
+                    <div class="app-buttons">
+                        <a href="#" class="app-btn">
+                            <i class="fa fa-play mr-2"></i>
+                            <span>Unduh di<br><b>Google Play</b></span>
+                        </a>
+                        <a href="#" class="app-btn">
+                            <i class="fa fa-apple mr-2"></i>
+                            <span>Unduh di<br><b>App Store</b></span>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-12 text-center">
 
-                <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright &copy;<script>
-                        document.write(new Date().getFullYear());
-                    </script> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-                    <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-            </div>
+        <div class="footer-bottom text-center">
+            <p>&copy; 2026 • <b>PT. TripGo.</b> All rights reserved.</p>
         </div>
     </div>
 </footer>

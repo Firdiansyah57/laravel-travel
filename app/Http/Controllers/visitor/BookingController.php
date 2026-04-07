@@ -53,6 +53,7 @@ class BookingController extends Controller
         $booking = Booking::create([
             'user_id'          => auth()->id(),
             'trip_schedule_id' => $trip->id,
+            'trip_date'        => $trip->trip_date, // 🔥 ini penting
             'name'             => $request->name,
             'email'            => $request->email,
             'phone'            => $request->phone,

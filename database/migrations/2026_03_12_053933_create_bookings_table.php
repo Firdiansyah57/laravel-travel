@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
             $table->foreignId('trip_schedule_id')->constrained()->cascadeOnDelete();
+            $table->date('trip_date'); // tambah ini
 
             $table->string('name');
             $table->string('email');
