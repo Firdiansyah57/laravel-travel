@@ -123,7 +123,7 @@ Route::middleware('auth')->group(function () {
     // testing waktu payment limit
     Route::get('/cleanup-tes', function () {
         \App\Models\Booking::where('status', 'draft')
-            ->where('created_at', '<', now()->subMinutes(60))
+            ->where('created_at', '<', now()->subMinutes(1))
             ->delete();
         return "Data draft yang lebih dari 1 menit sudah dibersihkan!";
     });

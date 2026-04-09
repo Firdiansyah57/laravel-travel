@@ -58,8 +58,8 @@
                                                     <span class="badge badge-danger p-2 shadow-sm" style="font-size: 11px;">
                                                         <i class="fa fa-clock mr-1"></i> SISA WAKTU:
                                                         <span class="countdown"
-                                                            data-time="{{ $b->created_at->addMinutes(60)->format('Y-m-d H:i:s') }}">
-                                                            00:00
+                                                            data-id="{{ $b->id }}"
+                                                            data-time="{{ $b->created_at->addMinutes(1)->setTimezone('Asia/Jakarta')->toIso8601String() }}">
                                                         </span>
                                                     </span>
                                                     <br><small class="text-muted" style="font-size: 10px;">Segera bayar
@@ -153,35 +153,48 @@
     </section>
 
     {{-- 🔥 SCRIPT COUNTDOWN --}}
-    <script>
-        function startCountdowns() {
-            const timers = document.querySelectorAll('.countdown');
+  <script>
+function startCountdowns() {
+    const timers = document.querySelectorAll('.countdown');
 
-            timers.forEach(timer => {
-                const targetDate = new Date(timer.getAttribute('data-time')).getTime();
+    timers.forEach(timer => {
+        const targetDate = new Date(timer.dataset.time).getTime();
+        const bookingId = timer.dataset.id;
 
-                const interval = setInterval(() => {
-                    const now = new Date().getTime();
-                    const distance = targetDate - now;
+        const interval = setInterval(() => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
 
-                    if (distance < 0) {
-                        clearInterval(interval);
-                        timer.innerHTML = "WAKTU HABIS";
-                        // Opsional: Auto refresh halaman saat waktu habis
-                        // window.location.reload();
-                        return;
+            if (distance <= 0) {
+                clearInterval(interval);
+                timer.innerHTML = "WAKTU HABIS";
+
+                // 🔥 AUTO DELETE BOOKING
+                fetch("{{ url('/booking/delete') }}/" + bookingId, {
+                    method: "DELETE",
+                    headers: {
+                        "X-CSRF-TOKEN": "{{ csrf_token() }}",
+                        "Accept": "application/json"
                     }
+                })
+                .then(() => {
+                    location.reload();
+                });
 
-                    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                return;
+            }
 
-                    timer.innerHTML = (minutes < 10 ? "0" + minutes : minutes) + ":" +
-                        (seconds < 10 ? "0" + seconds : seconds);
+            const minutes = Math.floor(distance / 60000);
+            const seconds = Math.floor((distance % 60000) / 1000);
 
-                }, 1000);
-            });
-        }
+            timer.innerHTML =
+                String(minutes).padStart(2, '0') + ":" +
+                String(seconds).padStart(2, '0');
 
-        document.addEventListener('DOMContentLoaded', startCountdowns);
-    </script>
+        }, 1000);
+    });
+}
+
+document.addEventListener('DOMContentLoaded', startCountdowns);
+</script>
 @endsection
