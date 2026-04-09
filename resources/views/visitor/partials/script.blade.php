@@ -16,8 +16,8 @@
 <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
 
 {{-- dropdown --}}
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script>
+{{-- <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js"></script> --}}
 
 
 <script>
@@ -91,3 +91,11 @@
         });
     </script>
 @endisset
+
+<script>
+$(document).ready(function () {
+    $('.navbar-toggler').click(function () {
+        $('#ftco-nav').collapse('toggle');
+    });
+});
+</script>

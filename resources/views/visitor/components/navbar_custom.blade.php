@@ -2,8 +2,10 @@
     <div class="container">
         <a class="navbar-brand brand-logo" href="{{ route('home') }}">TripGo<span>Travel Agency</span></a>
 
-        <button class="navbar-toggler" type="button" data-toggle="collapse" id="ftco-nav-2">
-            <span style="color:black; font-size:22px;"></span> MENU
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#ftco-nav"
+            aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+
+            <span class="oi oi-menu"></span> Menu
         </button>
 
         <div class="collapse navbar-collapse" id="ftco-nav">
@@ -23,7 +25,7 @@
                         ->count();
                 @endphp
 
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="{{ route('booking.my') }}" class="nav-link">
                         <i class="fa fa-shopping-cart"></i>
                         <span id="cart-badge" class="badge badge-primary">0</span>
@@ -60,7 +62,7 @@
                         </div>
                     </li>
                 @else
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a href="{{ route('google.login') }}" class="nav-link">
                             Login
                         </a>
@@ -97,4 +99,8 @@
     // Jalankan saat load dan setiap 10 detik
     document.addEventListener('DOMContentLoaded', updateCartCount);
     setInterval(updateCartCount, 10000);
+
+    document.querySelector('.navbar-toggler').addEventListener('click', function () {
+    this.classList.toggle('collapsed');
+});
 </script>

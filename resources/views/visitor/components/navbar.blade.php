@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar-1">
     <div class="container">
 
-        <a class="navbar-brand" href="{{ route('home') }}">
+        <a class="navbar-brand brand-logo" href="{{ route('home') }}">
             TripGo<span>Travel Agency</span>
         </a>
 
@@ -18,20 +18,20 @@
 
             <ul class="navbar-nav ml-auto align-items-center">
 
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="{{ route('destinations.index') }}" class="nav-link">Daftar Trip</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="{{ route('gallery.index') }}" class="nav-link">Gallery</a>
                 </li>
 
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="{{ route('tentang_kami.index') }}" class="nav-link">Tentang Kami</a>
                 </li>
 
                 {{-- CART --}}
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a href="{{ route('booking.my') }}" class="nav-link">
                         <i class="fa fa-shopping-cart"></i>
                         <span id="cart-badge" class="badge badge-primary">0</span>
@@ -68,7 +68,7 @@
                         </div>
                     </li>
                 @else
-                    <li class="nav-item">
+                    <li class="nav-item active">
                         <a href="{{ route('google.login') }}" class="nav-link">
                             Login
                         </a>

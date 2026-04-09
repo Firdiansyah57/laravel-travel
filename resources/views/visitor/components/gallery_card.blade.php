@@ -12,9 +12,10 @@
             @foreach($gallery as $item)
 <div class="gallery-item">
 
-    <a href="{{ asset('images/gallery/' . $item->image) }}" 
-       class="glightbox" 
+    <a href="{{ asset('images/gallery/' . $item->image) }}"
+       class="glightbox"
        data-gallery="trip-gallery">
+       
 
         <div class="gallery-img"
             style="background-image: url('{{ asset('images/gallery/' . $item->image) }}');">

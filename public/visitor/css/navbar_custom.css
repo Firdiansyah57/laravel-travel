@@ -50,9 +50,11 @@
 }
 
 .custom-navbar .navbar-nav .nav-item.active .nav-link {
+    color: #202020 !important;
+}
+.custom-navbar .navbar-nav .nav-item.active .nav-link:hover {
     color: #ff7a00 !important;
 }
-
 
 /* ============================= */
 /* MOBILE */
@@ -61,7 +63,7 @@
 @media (max-width: 991.98px) {
 
     .custom-navbar {
-        background: black !important;
+        background: rgb(14, 14, 14) !important;
     }
 
     /* logo */
@@ -73,6 +75,13 @@
         color: #ff7a00 !important;
     }
 
+    .custom-navbar .navbar-nav .nav-item.active .nav-link {
+    color: #fbfbfb !important;
+}
+.custom-navbar .navbar-nav .nav-item.active .nav-link:hover {
+    color: #ff7a00 !important;
+}
+
     /* menu */
     .custom-navbar .navbar-nav .nav-link {
         color: white !important;
@@ -83,5 +92,12 @@
         color: white !important;
         border-color: rgba(255,255,255,0.4);
     }
+
+    .custom-navbar.ftco-navbar-light.scrolled .navbar-nav .nav-item.active .nav-link {
+    color: #0e0e0e !important;
+}
+.custom-navbar.ftco-navbar-light.scrolled .navbar-nav .nav-item.active .nav-link:hover {
+    color: #ff7a00 !important;
+}
 
 }
